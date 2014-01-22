@@ -87,7 +87,8 @@ final public class ElementFacade {
 		if (property == null) {
 			BpJpaElement bpJpaElement = jpaElement.getAsBpJpaElement(); 
 			property = new BpJpaProperty(key, value, bpJpaElement);
-			//jpaGraph.getDamper().persist(jpaGraph, property);
+//			if (! jpaGraph.getDamper().isObjectDB() )
+				jpaGraph.getDamper().persist(jpaGraph, property);
 			bpJpaElement.putProperty(property);
 			jpaGraph.getBpJpaKeyIndexManager().createKeyIndexedPropertyIfNeeds(property);
 		} else {

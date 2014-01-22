@@ -201,7 +201,6 @@ final public class BpJpaVertex extends BpJpaElement {
 		if ( key.length() == 0 ) throw BpJpaExceptionFactory.cannotBeEmpty("key");
 		TypedQuery<BpJpaVertex> q = entityManager.createNamedQuery("BpJpaVertex_getVerticesByKey", BpJpaVertex.class).setParameter("keyName", key);
 		return q.getResultList();
-	}	
-
+	}
 	
 }

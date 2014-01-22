@@ -33,7 +33,7 @@ public abstract class BpJpaEntity {
 	private Long id;
 	
 	@Version
-	private Long version = 0L;
+	protected Long version = null;
 
 	public Long getId() {		
 		return id;
@@ -46,5 +46,9 @@ public abstract class BpJpaEntity {
 	public boolean isRemoved() {
 		return this.removed;
 	}
+	
+	public Long getVersion() {
+		return this.version;
+	}	
 
 }

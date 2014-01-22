@@ -7,6 +7,7 @@ Blueprints support
 ==================
 
 * Support all features, except supportsThreadedTransactions.
+* Support [SailGraph](https://github.com/tinkerpop/blueprints/wiki/Sail-Implementation).
 
 JPA support
 ==================

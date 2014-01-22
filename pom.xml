@@ -234,4 +234,12 @@
 
 	</repositories>
 
+	<distributionManagement>  
+	  <repository>  
+	   <id>internal.repo</id>  
+	   <name>Internal Repository</name>  
+	   <url>${internal.repo.path}</url>  
+	  </repository>  
+	</distributionManagement> 
+ 
 </project>

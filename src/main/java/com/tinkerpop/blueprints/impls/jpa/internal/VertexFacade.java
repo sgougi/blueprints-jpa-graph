@@ -107,7 +107,8 @@ final public class VertexFacade {
 		try {
 			jpaGraph.getDamper().beforeFetch(jpaGraph);
 			BpJpaVertex bpJpaVertex = jpaVertex.getAsBpJpaVertex();
-			if (jpaGraph.getDamper().isObjectDB()) jpaGraph.getRawGraph().refresh(bpJpaVertex);
+			//if ( bpJpaVertex.getVersion() != null && bpJpaVertex.getVersion() > 1 && jpaGraph.getDamper().isObjectDB() )
+			//	jpaGraph.getRawGraph().refresh(bpJpaVertex);
 			List<BpJpaEdge> edges = bpJpaVertex.getEdges(jpaGraph.getRawGraph(), direction, labels);
 			return new JpaEdgeIterable(jpaGraph, edges);
 		} catch (Exception e) { 
@@ -122,9 +123,8 @@ final public class VertexFacade {
 		try {
 			jpaGraph.getDamper().beforeFetch(jpaGraph);
 			BpJpaVertex bpJpaVertex = jpaVertex.getAsBpJpaVertex();
-			final List<BpJpaVertex> vertices;
 			List<BpJpaEdge> edges = bpJpaVertex.getEdges(jpaGraph.getRawGraph(), direction, labels);
-			vertices = new ArrayList<BpJpaVertex>();
+			final List<BpJpaVertex> vertices = new ArrayList<BpJpaVertex>();
 			for (BpJpaEdge edge : edges) {
 				if ( edge.getIncomingVertex().equals(bpJpaVertex) )
 					vertices.add(edge.getOutgoingVertex());	

@@ -43,7 +43,6 @@ final public class BpJpaProperty extends BpJpaEntity {
 		if (key == null) throw BpJpaExceptionFactory.cannotBeNull("key");
 		if (key.length() == 0) throw BpJpaExceptionFactory.cannotBeNull("key");
 		if (value == null) throw BpJpaExceptionFactory.cannotBeNull("value");
-				
 		this.keyName = key;
 		setElement(element);
 		setValue(value);
