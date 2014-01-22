@@ -13,7 +13,7 @@ JPA support
 ==================
 
 * ObjectDB
-* EclipseLink
+* EclipseLink  (At this point, I recommend EclipseLink)
 * Hibernate
 
 Weak points
@@ -25,7 +25,7 @@ Weak points
 Micro benchmark only as a guide
 ===============================
 
-|                            | JPA:ObjectDB(*1)| JPA:EclipseLink+Derby(*5)|  JPA:Hibernate+Derby |   OrientDB    |   DEX      |
+|                            | JPA:ObjectDB(*1)| JPA:EclipseLink+Derby|  JPA:Hibernate+Derby |   OrientDB    |   DEX      |
 |:---------------------------|----------------|----------------------|----------------------|--------------|-------------:|
 |                            | 2.5.0-SNAPSHOT |     2.5.0-SNAPSHOT   |    2.5.0-SNAPSHOT    |  2.4.0(*2)   |   2.4.0(*3)  |
 | VertexTestSuite            |    2890.85     |       3650.64        |      7594.04         |  5731.31     |   5051.43    |
@@ -43,7 +43,6 @@ Micro benchmark only as a guide
      *2: mvn test -Dtest=OrientGraphLightweightEdgesTest
      *3: mvn test -Dtest=DexGraphTest
      *4: JpaGraph.getVertices()/getEdges() are slightly slow.
-     *5: At this point, I recommend EclipseLink.
 
 Installing into the Maven local repository manually
 ================================================
