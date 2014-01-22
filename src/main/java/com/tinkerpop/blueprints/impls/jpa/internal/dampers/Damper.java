@@ -33,6 +33,8 @@ public interface Damper {
 
 	boolean isHibernate();
 
-	void flat();
+	boolean isObjectDB();
 
+	void flat();
+	
 }

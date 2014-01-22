@@ -24,12 +24,11 @@
 	</developers>   
 	  
 	<properties>
-	 	<github.global.server>github</github.global.server>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<blueprints.version>2.5.0-SNAPSHOT</blueprints.version>
-	    <dryRun>false</dryRun>
-        <github.site.skip>false</github.site.skip>
-        <internal.repo.path>file:D:\gougi\Documents\GitHub\mvn-repo</internal.repo.path>  
+		<sesame.version>2.6.10</sesame.version>
+        <sesametools.version>1.7</sesametools.version>
+        <ripple.version>1.0</ripple.version>
 	</properties>
 
 	<build>
@@ -54,6 +53,10 @@
 				                <name>blueprints-jpa-graph.test-persistence-unit</name>
 				                <value>DefaultUnit</value>
 				            </property>
+				            <property>
+				            	<name>jpa.graph.default.unit</name>
+				            	<value>DefaultUnit</value>
+				            </property>
 				        </systemProperties>
 				    </configuration>
 				</plugin>
@@ -72,23 +75,6 @@
 				  </executions>
 				</plugin>
      			
-    <plugin>
-      <groupId>com.github.github</groupId>
-      <artifactId>site-maven-plugin</artifactId>
-      <version>0.8</version>
-      <configuration>
-        <message>Creating site for ${project.version}</message>
-      </configuration>
-      <executions>
-        <execution>
-          <goals>
-            <goal>site</goal>
-          </goals>
-          <phase>site</phase>
-        </execution>
-      </executions>
-    </plugin>
-
 			</plugins>
 		</pluginManagement>
 	</build>
@@ -119,6 +105,13 @@
 			<version>${blueprints.version}</version>
 			<scope>test</scope>
 		</dependency>
+		
+		<dependency>		
+        	<groupId>com.tinkerpop.blueprints</groupId>
+	        <artifactId>blueprints-graph-sail</artifactId>
+        	<version>${blueprints.version}</version>
+        	<scope>test</scope>
+        </dependency>		
 		
 		<dependency>
 			<groupId>junit</groupId>
@@ -158,13 +151,64 @@
 			<artifactId>eclipselink</artifactId>
 			<version>2.5.1</version>
 			<scope>test</scope>
-		</dependency>
+		</dependency>		
 		<dependency>
 			<groupId>org.eclipse.persistence</groupId>
 			<artifactId>javax.persistence</artifactId>
 			<version>2.1.0</version>
 			<scope>provided</scope>
 		</dependency>
+		
+		<!-- SESAME SUPPORT -->
+        <dependency>
+            <groupId>org.openrdf.sesame</groupId>
+            <artifactId>sesame-sail-api</artifactId>
+            <version>${sesame.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openrdf.sesame</groupId>
+            <artifactId>sesame-queryparser-sparql</artifactId>
+            <version>${sesame.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openrdf.sesame</groupId>
+            <artifactId>sesame-sail-memory</artifactId>
+            <version>${sesame.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openrdf.sesame</groupId>
+            <artifactId>sesame-sail-nativerdf</artifactId>
+            <version>${sesame.version}</version>
+			<scope>test</scope>            
+        </dependency>
+		<dependency>
+        	<groupId>org.openrdf</groupId>
+	        <artifactId>openrdf-repository-sail</artifactId>
+	        <version>2.0.1</version>
+	        <scope>test</scope>            
+        </dependency>        
+        <dependency>
+            <groupId>net.fortytwo</groupId>
+            <artifactId>linked-data-sail</artifactId>
+            <version>${ripple.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.fortytwo.sesametools</groupId>
+            <artifactId>nquads</artifactId>
+            <version>${sesametools.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.fortytwo.sesametools</groupId>
+            <artifactId>repository-sail</artifactId>
+            <version>${sesametools.version}</version>
+            <scope>test</scope>
+        </dependency>		
+		        		
 	</dependencies>
 
 	<repositories>
@@ -181,15 +225,13 @@
 			<name>SnakeYAML repository</name>
 			<url>http://oss.sonatype.org/content/groups/public/</url>
 		</repository>
+		
+		<repository>
+    	    <id>thirdparty-releases</id>
+        	<name>JBoss Thirdparty Releases</name>
+        	<url>https://repository.jboss.org/nexus/content/repositories/thirdparty-releases</url>
+	    </repository>    		
 
 	</repositories>
-  
- <distributionManagement>  
-  <repository>  
-   <id>internal.repo</id>  
-   <name>Internal Repository</name>  
-   <url>${internal.repo.path}</url>  
-  </repository>  
- </distributionManagement>  
 
 </project>

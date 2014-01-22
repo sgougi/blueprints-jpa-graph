@@ -112,7 +112,13 @@ public class ObjectDBDamper implements Damper  {
 	}
 
 	@Override
+	public boolean isObjectDB() {
+		return true;
+	}
+	
+	@Override
 	public void flat() {
 		tlDirty.set(false);		
 	}
+
 }

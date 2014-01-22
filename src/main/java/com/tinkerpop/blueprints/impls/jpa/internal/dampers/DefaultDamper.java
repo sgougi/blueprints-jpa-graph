@@ -75,6 +75,11 @@ final public class DefaultDamper implements Damper {
 	}
 
 	@Override
+	public boolean isObjectDB() {
+		return false;
+	}
+	
+	@Override
 	public void flat() {
 		/* noop */		
 	}

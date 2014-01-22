@@ -87,7 +87,7 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 		<mapping-file>META-INF/BpJpaEntity.normal.xml</mapping-file>
 		<mapping-file>META-INF/BpJpaIndexBase.normal.xml</mapping-file>
 		<mapping-file>META-INF/BpJpaElement.nq.normal.xml</mapping-file>		
-	 	<mapping-file>META-INF/BpJpaElement.normal.xml</mapping-file>			
+	 	<mapping-file>META-INF/BpJpaElement.hibernate.xml</mapping-file>			
 		<mapping-file>META-INF/BpJpaVertex.nq.normal.xml</mapping-file>
 		<mapping-file>META-INF/BpJpaVertex.normal.xml</mapping-file>
 	 	<mapping-file>META-INF/BpJpaEdge.nq.normal.xml</mapping-file>
