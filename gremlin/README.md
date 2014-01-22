@@ -25,6 +25,7 @@ Hello, Gremlin!!
       gremlin>
 
    Or construct a empty JpaGraph as follows:
+
       gremlin> g = new com.tinkerpop.blueprints.impls.jpa.JpaGraph()
       ==>jpagraph
       gremlin>
