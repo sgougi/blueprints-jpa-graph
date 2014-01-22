@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="Foundation" default="test-all" basedir=".">
+    <property environment="env"/>
+	
+	<!-- ====================================
+		             INSTALL
+	     ==================================== -->
+	<target name="install" depends="init">
+	    <exec executable="${mvn.command}" dir="." failonerror="true">
+	    	<arg value="-f"/>
+	    	<arg value="pom.xml"/>
+	    	<arg value="install"/>
+	      	<arg value="-DskipTests=true"/>
+	    </exec>
+	</target>
+
+	<!-- ====================================
+		             TEST-ALL
+	     ==================================== -->	
+	<target name="test-all" depends="test-eclipselink,test-hibernate,test-objectdb">
+	</target>
+	
+
+	<!-- ====================================
+		             TEST-EclipseLink
+	     ==================================== -->		
+	<target name="test-eclipselink">
+		<antcall target="exec-test">
+			<param name="pom.file" value="pom-eclipselink.xml"/>
+		</antcall>   		
+	</target>
+
+	<!-- ====================================
+		             TEST-Hibernate
+	     ==================================== -->	
+	<target name="test-hibernate">
+		<antcall target="exec-test">
+			<param name="pom.file" value="pom-hibernate.xml"/>
+		</antcall>		
+	</target>
+
+	<!-- ====================================
+		             TEST-ObjectDB
+	     ==================================== -->	
+	<target name="test-objectdb">
+		<antcall target="exec-test">
+			<param name="pom.file" value="pom-objectdb.xml"/>
+		</antcall>		
+	</target>	
+	
+	<!-- ************************************************************* -->
+	
+	<!-- ====================================
+   		                INIT
+	     ==================================== -->	
+    <target name="init">
+	    <condition property="mvn.command" value="mvn.bat">
+	      <os family="windows" />
+	    </condition>
+	    <condition property="mvn.command" value="mvn">
+	      <or>
+	        <os family="unix" />
+	        <os family="mac" />
+	      </or>
+	    </condition>	    
+    </target>
+	
+	<!-- ====================================
+		             EXEC-TEST
+	     ==================================== -->	
+	<target name="exec-test" depends="init">
+	    <exec executable="${mvn.command}" dir="." failonerror="true">
+	    	<arg value="-f"/>
+	    	<arg value="${pom.file}"/>
+	    	<arg value="test"/>
+	      	<arg value="-Dtest=JpaGraphTest"/>
+	    </exec>		
+	</target>
+	
+</project>

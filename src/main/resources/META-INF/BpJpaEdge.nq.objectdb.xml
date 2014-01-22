@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_0.xsd"
+                 version="2.0">
+                         
+	<named-query name="BpJpaEdge_getEdges">
+		<query>SELECT e FROM BpJpaEdge e</query>
+	</named-query>
+	
+	<named-query name="BpJpaEdge_getEdgesByKey">
+		<query>SELECT e FROM BpJpaEdge e join e.propMap m where m.keyName = :keyName</query>
+	</named-query>
+	
+	<named-query name="BpJpaEdge_getEdgeById">
+		<query>SELECT e FROM BpJpaEdge e where e.id = :id</query>
+	</named-query>
+						
+</entity-mappings>

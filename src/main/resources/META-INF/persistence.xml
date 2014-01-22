@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/persistence/persistence_2_1.xsd">
+-->
+
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+ 
+	<persistence-unit name="DefaultUnit" transaction-type="RESOURCE_LOCAL">
+	 	<mapping-file>META-INF/BpJpaEntity.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaIndexBase.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaElement.nq.normal.xml</mapping-file>	 		
+	 	<mapping-file>META-INF/BpJpaElement.normal.xml</mapping-file>	
+		<mapping-file>META-INF/BpJpaVertex.nq.normal.xml</mapping-file>
+		<mapping-file>META-INF/BpJpaVertex.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaEdge.nq.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaEdge.normal.xml</mapping-file>	 	
+	 	<mapping-file>META-INF/BpJpaProperty.normal.xml</mapping-file>	 	
+	 	<mapping-file>META-INF/BpJpaIndex.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaIndex.nq.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaIndexItem.nq.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaIndexItem.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaKeyIndex.nq.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaKeyIndex.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaKeyIndexedProperty.nq.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaKeyIndexedProperty.normal.xml</mapping-file>
+	 		 		 	
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<shared-cache-mode>NONE</shared-cache-mode>
+		<properties>		
+			<property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:derby:db/DefaultUnit;create=true" />
+			<property name="javax.persistence.jdbc.user" value="admin" />
+			<property name="javax.persistence.jdbc.password" value="admin" />
+
+			<!-- EclipseLink should create the database schema automatically -->
+			<property name="eclipselink.ddl-generation" value="create-tables" />
+			<property name="eclipselink.ddl-generation.output-mode" value="database" />
+			<property name="eclipselink.logging.level" value="SEVERE"/>
+			<!-- <property name="eclipselink.logging.level.sql" value="FINE"/> -->
+		    <!--  http://wiki.eclipse.org/EclipseLink/Examples/JPA/Logging  -->
+		</properties>
+	</persistence-unit>
+	
+	<persistence-unit name="EclipseLinkUnit" transaction-type="RESOURCE_LOCAL">
+ 		<mapping-file>META-INF/BpJpaEntity.normal.xml</mapping-file>	    
+	 	<mapping-file>META-INF/BpJpaIndexBase.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaElement.nq.normal.xml</mapping-file>		
+	 	<mapping-file>META-INF/BpJpaElement.normal.xml</mapping-file>	 	
+		<mapping-file>META-INF/BpJpaVertex.nq.normal.xml</mapping-file>
+		<mapping-file>META-INF/BpJpaVertex.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaEdge.nq.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaEdge.normal.xml</mapping-file>	 	
+	 	<mapping-file>META-INF/BpJpaProperty.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaIndex.nq.normal.xml</mapping-file>	 		 	
+	 	<mapping-file>META-INF/BpJpaIndex.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaIndexItem.nq.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaIndexItem.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaKeyIndex.nq.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaKeyIndex.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaKeyIndexedProperty.nq.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaKeyIndexedProperty.normal.xml</mapping-file>
+	 		 		 	
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<!-- <shared-cache-mode>NONE</shared-cache-mode>  -->
+		<properties>		
+			<property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:derby:db/EclipseLinkUnit;create=true" />
+			<property name="javax.persistence.jdbc.user" value="admin" />
+			<property name="javax.persistence.jdbc.password" value="admin" />
+
+			<!-- EclipseLink should create the database schema automatically -->
+			<property name="eclipselink.ddl-generation" value="create-tables" />
+			<property name="eclipselink.ddl-generation.output-mode" value="database" />
+			<property name="eclipselink.logging.level" value="SEVERE"/>
+			<!-- property name="eclipselink.logging.level.sql" value="FINE"/>  -->
+		    <!--  http://wiki.eclipse.org/EclipseLink/Examples/JPA/Logging  -->
+		</properties>
+	</persistence-unit>
+	
+	<persistence-unit name="HibernateUnit" transaction-type="RESOURCE_LOCAL">
+		<mapping-file>META-INF/BpJpaEntity.normal.xml</mapping-file>
+		<mapping-file>META-INF/BpJpaIndexBase.normal.xml</mapping-file>
+		<mapping-file>META-INF/BpJpaElement.nq.normal.xml</mapping-file>		
+	 	<mapping-file>META-INF/BpJpaElement.normal.xml</mapping-file>			
+		<mapping-file>META-INF/BpJpaVertex.nq.normal.xml</mapping-file>
+		<mapping-file>META-INF/BpJpaVertex.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaEdge.nq.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaEdge.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaProperty.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaIndex.nq.normal.xml</mapping-file>	 		 		 	
+	 	<mapping-file>META-INF/BpJpaIndex.hibernate.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaIndexItem.nq.normal.xml</mapping-file>	 	
+		<mapping-file>META-INF/BpJpaIndexItem.normal.xml</mapping-file>
+		<mapping-file>META-INF/BpJpaKeyIndex.nq.normal.xml</mapping-file>
+		<mapping-file>META-INF/BpJpaKeyIndex.normal.xml</mapping-file>
+		<mapping-file>META-INF/BpJpaKeyIndexedProperty.nq.normal.xml</mapping-file>
+		<mapping-file>META-INF/BpJpaKeyIndexedProperty.normal.xml</mapping-file>
+					 		 	
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<!-- <shared-cache-mode>NONE</shared-cache-mode> -->
+		<properties>		
+			<property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:derby:db/HibernateUnit;create=true" />
+			<property name="javax.persistence.jdbc.user" value="admin" />
+			<property name="javax.persistence.jdbc.password" value="admin" />
+
+		    <property name="hibernate.show_sql" value="false" />
+      		<property name="hibernate.hbm2ddl.auto" value="update" />
+		</properties>
+	</persistence-unit>	
+	
+	<persistence-unit name="ObjectDbUnit" transaction-type="RESOURCE_LOCAL">
+		<provider>com.objectdb.jpa.Provider</provider>
+		<mapping-file>META-INF/BpJpaElement.nq.objectdb.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaElement.normal.xml</mapping-file>
+		<mapping-file>META-INF/BpJpaVertex.nq.objectdb.xml</mapping-file>	 				 	
+		<mapping-file>META-INF/BpJpaVertex.normal.xml</mapping-file>
+		<mapping-file>META-INF/BpJpaEdge.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaIndex.nq.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaKeyIndex.nq.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaIndexItem.nq.objectdb.xml</mapping-file>	 		 		 			
+	 	<mapping-file>META-INF/BpJpaEdge.nq.objectdb.xml</mapping-file>
+		<mapping-file>META-INF/BpJpaKeyIndexedProperty.nq.normal.xml</mapping-file>
+
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+		<!-- <shared-cache-mode>NONE</shared-cache-mode> -->		
+		<properties>
+			<property name="javax.persistence.jdbc.url"  value="objectdb:db/ObjectDbUnit/test.odb"/>
+			<property name="javax.persistence.jdbc.user" value="admin"/>
+			<property name="javax.persistence.jdbc.password" value="admin"/>
+		</properties>
+	</persistence-unit>
+		
+</persistence>

@@ -1,0 +1,103 @@
+<project name="hello-ivy" default="run" xmlns:ivy="antlib:org.apache.ivy.ant">
+	<property name="ivy.install.version" value="2.3.0" />
+	<property name="ivy.jar.dir" value="${basedir}/ivy" />
+	<property name="ivy.jar.file" value="${ivy.jar.dir}/ivy.jar" />
+	<property name="tinkerpop.version" value="2.5.0-SNAPSHOT" />
+	
+    <!-- some variables used -->
+    <property name="lib.dir" value="lib" />
+    <property name="build.dir" value="build" />
+    <property name="src.dir" value="src" />
+    
+    <!-- paths used for compilation and run  -->
+    <path id="lib.path.id">
+        <fileset dir="${lib.dir}" />
+	</path>
+    <path id="run.path.id">
+        <path refid="lib.path.id" />
+        <path location="${build.dir}" />
+    </path>
+    
+    <path id="lib.run.objectdb.id">
+        <path location="${build.dir}" />
+        <fileset dir="${lib.dir}/ObjectDB" />
+	</path>
+	<path id="lib.run.eclipselink.id">
+        <path location="${build.dir}" />
+		<fileset dir="${lib.dir}/EclipseLink" />
+    </path>    
+	<path id="lib.run.hibernate.id">
+        <path location="${build.dir}" />
+		<fileset dir="${lib.dir}/Hibernate" />
+    </path>
+        
+    <!-- ================================= 
+          target: download-ivy
+         ================================= -->    
+    <target name="download-ivy" unless="skip.download">
+    	<mkdir dir="${ivy.jar.dir}"/>
+		<!-- download Ivy from web site so that it can be used even without any special installation -->
+		<echo message="installing ivy..."/>
+    	<get src="http://repo1.maven.org/maven2/org/apache/ivy/ivy/${ivy.install.version}/ivy-${ivy.install.version}.jar"
+    		 dest="${ivy.jar.file}" usetimestamp="true"/>
+    </target>
+        
+    <!-- ================================= 
+          target: install-ivy
+         ================================= -->        
+    <target name="install-ivy" depends="download-ivy" description="--> install ivy">
+    	<path id="ivy.lib.path">
+    	    <pathelement location="${ivy.jar.file}"/>
+    	</path>
+    	<taskdef resource="org/apache/ivy/ant/antlib.xml"
+    	          uri="antlib:org.apache.ivy.ant" classpathref="ivy.lib.path"/>
+    </target> 
+    
+    <!-- ================================= 
+          target: init-ivy
+         ================================= -->            
+    <target name="init-ivy" depends="install-ivy">
+		<ivy:settings id="basic.settings"    file="settings.xml"/>
+    </target>
+                
+    <!-- ================================= 
+          target: resolve              
+         ================================= -->
+    <target name="resolve" description="--> retreive dependencies with ivy">
+        <ivy:retrieve transitive="true" settingsRef="basic.settings"  pattern="${ivy.lib.dir}/[conf]/[artifact]-[revision].[ext]" />
+    </target>    
+    
+    <!-- ================================= 
+          target: report              
+         ================================= -->
+    <target name="report" depends="init-ivy, resolve" description="--> generates a report of dependencies">
+        <ivy:report settingsRef="basic.settings" todir="${build.dir}"/>
+    </target>
+
+    <!-- ================================= 
+          target: run
+         ================================= -->
+    <target name="run" depends="init-ivy, resolve" description="--> compile and run the project">
+    </target>
+
+    <!-- ================================= 
+          target: clean              
+         ================================= -->
+    <target name="clean" description="--> clean the project">
+        <delete includeemptydirs="true">
+            <fileset dir="${basedir}">
+            	<exclude name="src/**" />
+            	<exclude name="build.xml" />
+              <exclude name="ivy.xml" />
+              <exclude name="settings.xml" />
+        	</fileset>
+    	</delete>
+    </target>
+	
+    <!-- ================================= 
+          target: clean-cache              
+         ================================= -->
+	<target name="clean-cache" description="--> clean the ivy cache">
+		<ivy:cleancache />
+	</target>
+</project>

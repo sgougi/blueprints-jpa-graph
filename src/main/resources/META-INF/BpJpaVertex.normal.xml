@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_0.xsd"
+                 version="2.0">        
+
+	 <entity class="com.tinkerpop.blueprints.impls.jpa.internal.models.BpJpaVertex"	access="FIELD">
+		<table name="VERTEX">
+		</table>
+		<attributes>
+			<one-to-many name="outgoingEdges" orphan-removal="true" fetch="LAZY" mapped-by="outgoingVertex">
+				<cascade>
+					<cascade-persist/>
+					<cascade-remove/>
+				</cascade>				
+			</one-to-many>		
+			<one-to-many name="incomingEdges" orphan-removal="true" fetch="LAZY" mapped-by="incomingVertex">
+				<cascade>
+					<cascade-persist/>
+					<cascade-remove/>
+				</cascade>				
+			</one-to-many>	
+		</attributes>
+	</entity>
+					
+</entity-mappings>

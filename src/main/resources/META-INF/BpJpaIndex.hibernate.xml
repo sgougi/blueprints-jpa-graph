@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<entity-mappings xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm
+        http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd" version="2.1">
+
+	 <entity class="com.tinkerpop.blueprints.impls.jpa.internal.models.index.BpJpaIndex" access="FIELD">
+		<table name="INDEX">
+			<index column-list="indexName" unique="false"/><!-- hibernate bug? -->
+		</table>
+		<attributes>
+			<basic name="indexName">
+				<column name="INDEXNAME"/>
+			</basic>
+			<basic name="indexClassName">
+				<column name="INDEXCLASSNAME"/>
+			</basic>			
+			<one-to-many name="indexItems" orphan-removal="true" mapped-by="bpJpaIndex">
+				<cascade>
+					<cascade-persist/>
+					<cascade-remove/>
+				</cascade>				
+			</one-to-many>
+		</attributes>
+
+	</entity>
+
+</entity-mappings>

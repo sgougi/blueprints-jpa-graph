@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0" 
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:noNamespaceSchemaLocation=
+                   "http://ant.apache.org/ivy/schemas/ivy.xsd">
+                   
+    <info organisation="org.apache" module="configurations" ></info>
+    
+    <configurations>
+    	<conf name="common"/>
+    	<conf name="ObjectDB" extends="common"/>
+    	<conf name="EclipseLink" extends="common"/>
+    	<conf name="Hibernate" extends="common"/>    	
+    </configurations>
+    
+    <dependencies>
+    	<dependency org="com.tinkerpop.gremlin" name="gremlin" rev="${tinkerpop.version}" conf="common->default"/>
+    	<dependency org="com.tinkerpop.gremlin" name="gremlin-java" rev="${tinkerpop.version}" conf="common->default"/>
+        <dependency org="com.tinkerpop.gremlin" name="gremlin-groovy" rev="${tinkerpop.version}" conf="common->default"/>
+        <dependency org="com.tinkerpop.blueprints" name="blueprints-jpa-graph" rev="${tinkerpop.version}" changing="true" conf="common->default"/>
+        <dependency org="com.tinkerpop" name="pipes" rev="${tinkerpop.version}" conf="common->default"/>
+        <dependency org="com.tinkerpop.blueprints" name="blueprints-core" rev="${tinkerpop.version}" conf="common->default"/>
+        <dependency org="org.slf4j" name="slf4j-log4j12" rev="1.7.5" conf="common->default"/>
+        <dependency org="org.slf4j" name="slf4j-simple" rev="1.6.1" conf="common->default"/>
+        <dependency org="javax.jdo" name="jdo2-api" rev="2.3-eb" conf="common->default"/>
+        <dependency org="org.codehaus.groovy" name="groovy-all" rev="1.8.9" conf="common->default"/>
+        <dependency org="org.fusesource.jansi" name="jansi" rev="1.5" conf="common->default"/>
+        <dependency org="jline" name="jline" rev="0.9.94" conf="common->default"/>
+        <dependency org="com.objectdb" name="objectdb" rev="2.5.4" conf="ObjectDB->default"/>
+        
+        <dependency org="org.apache.derby" name="derby" rev="10.10.1.1" conf="EclipseLink->default"/>
+        <dependency org="org.apache.derby" name="derbytools" rev="10.10.1.1" conf="EclipseLink->default"/>
+        <dependency org="org.eclipse.persistence" name="eclipselink" rev="2.5.1" conf="EclipseLink->default"/>
+        <dependency org="org.eclipse.persistence" name="javax.persistence" rev="2.1.0" conf="EclipseLink->default"/>
+
+		<dependency org="org.apache.derby" name="derby" rev="10.10.1.1" conf="Hibernate->default"/>
+        <dependency org="org.apache.derby" name="derbytools" rev="10.10.1.1" conf="Hibernate->default"/>
+        <dependency org="org.hibernate" name="hibernate-entitymanager" rev="4.3.0.Final" conf="Hibernate->default"/>
+        
+        <exclude org="org.tinkerpop.blueprints" artifact="blueprints-dex-graph" />
+        <exclude org="org.tinkerpop.blueprints" artifact="blueprints-graph-jung" />
+        <exclude org="org.tinkerpop.blueprints" artifact="blueprints-graph-sail" />
+        <exclude org="org.tinkerpop.blueprints" artifact="blueprints-neo4j2-graph" />
+        <exclude org="org.tinkerpop.blueprints" artifact="blueprints-neo4j-graph" />
+        <exclude org="org.tinkerpop.blueprints" artifact="blueprints-orient-graph" />
+        <exclude org="org.tinkerpop.blueprints" artifact="blueprints-rexstert-graph" />
+        <exclude org="org.tinkerpop.blueprints" artifact="blueprints-sail-graph" />
+        <exclude org="junit" artifact="junit" />
+    </dependencies>
+   
+</ivy-module>

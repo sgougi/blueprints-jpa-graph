@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<entity-mappings xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm
+        http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd" version="2.1">
+
+	 <entity class="com.tinkerpop.blueprints.impls.jpa.internal.models.index.BpJpaKeyIndexedProperty" access="FIELD">
+		<table name="KEY_INDEXED_PROPERTY">
+ 			<index column-list="propertyId,indexValue,keyName,elementType" unique="false"/>
+ 			<index column-list="elementId" unique="false"/>
+		</table>
+		<attributes>
+			<basic name="indexValue">
+				<column name="INDEXVALUE"/>
+			</basic>
+			<basic name="propertyId">
+				<column name="PROPERTYID"/>
+			</basic>
+			<basic name="keyName">
+				<column name="KEYNAME"/>
+			</basic>
+			<basic name="elementType">
+				<column name="ELEMENTTYPE"/>
+			</basic>						
+			<basic name="elementId">
+				<column name="ELEMENTID"/>
+			</basic>			
+			<one-to-one name="bpJpaKeyIndex" fetch="LAZY">
+				<cascade><cascade-persist/></cascade>
+			</one-to-one>			
+		</attributes>
+	</entity>
+
+</entity-mappings>

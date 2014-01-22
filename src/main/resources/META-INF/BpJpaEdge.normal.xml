@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_0.xsd"
+                 version="2.0">  
+
+	 <entity class="com.tinkerpop.blueprints.impls.jpa.internal.models.BpJpaEdge" access="FIELD">
+		<table name="EDGE">
+		</table>
+		<attributes>
+			<basic name="label">
+				<column name="LABEL"/>
+			</basic>
+			<one-to-one name="outgoingVertex">
+				<cascade><cascade-persist/></cascade>
+			</one-to-one>
+			<one-to-one name="incomingVertex">
+				<cascade><cascade-persist/></cascade>
+			</one-to-one>			
+		</attributes>
+	</entity>
+
+</entity-mappings>

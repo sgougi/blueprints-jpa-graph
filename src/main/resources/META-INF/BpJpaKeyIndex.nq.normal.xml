@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_0.xsd"
+                 version="2.0">   
+	
+	<named-query name="BpJpaKeyIndex_getIndexedKeys">
+		<query>SELECT x.keyName FROM BpJpaKeyIndex x where x.elementType = :elementType</query>
+	</named-query>
+	
+	<named-query name="BpJpaKeyIndex_getKeyIndex">
+		<query>SELECT x FROM BpJpaKeyIndex x where x.elementType = :elementType AND x.keyName = :keyName</query>
+	</named-query>
+	
+	<named-query name="BpJpaKeyIndex_getElementsByUsingKeyIndex">
+		<query>SELECT p.element FROM BpJpaKeyIndexedProperty i, BpJpaProperty p
+			where
+					i.propertyId = p.id    
+    		    AND i.indexValue = :indexValue
+ 				AND i.keyName = :keyName
+ 				AND i.elementType = :elementType    		    
+		</query>
+	</named-query>
+		
+</entity-mappings>
