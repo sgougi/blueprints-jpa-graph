@@ -88,8 +88,11 @@
             <fileset dir="${basedir}">
             	<exclude name="src/**" />
             	<exclude name="build.xml" />
-              <exclude name="ivy.xml" />
-              <exclude name="settings.xml" />
+            	<exclude name="ivy.xml" />
+            	<exclude name="settings.xml" />
+            	<exclude name="*.bat" />
+            	<exclude name="*.sh" />
+            	<exclude name="*.md" />
         	</fileset>
     	</delete>
     </target>

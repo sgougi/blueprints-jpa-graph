@@ -20,13 +20,13 @@ Hello, Gremlin!!
                \,,,/
                (o o)
       -----oOOo-(_)-oOOo-----
-      gremlin> g = com.tinkerpop.blueprints.impls.jpa.JpaGraphFactory.createJpaGraph()
+      gremlin> g = com.wingnest.blueprints.impls.jpa.JpaGraphFactory.createJpaGraph()
       ==>jpagraph
       gremlin>
 
    Or construct a empty JpaGraph as follows:
 
-      gremlin> g = new com.tinkerpop.blueprints.impls.jpa.JpaGraph()
+      gremlin> g = new com.wingnest.blueprints.impls.jpa.JpaGraph()
       ==>jpagraph
       gremlin>
 

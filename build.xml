@@ -73,6 +73,7 @@
 	    <exec executable="${mvn.command}" dir="." failonerror="true">
 	    	<arg value="-f"/>
 	    	<arg value="${pom.file}"/>
+	    	<arg value="clean"/>
 	    	<arg value="test"/>
 	      	<arg value="-Dtest=JpaGraphTest"/>
 	    </exec>		

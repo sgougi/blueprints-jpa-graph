@@ -5,7 +5,7 @@
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm
         http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd" version="2.1">
 
-	 <entity class="com.tinkerpop.blueprints.impls.jpa.internal.models.index.BpJpaKeyIndexedProperty" access="FIELD">
+	 <entity class="com.wingnest.blueprints.impls.jpa.internal.models.index.BpJpaKeyIndexedProperty" access="FIELD">
 		<table name="KEY_INDEXED_PROPERTY">
  			<index column-list="propertyId,indexValue,keyName,elementType" unique="false"/>
  			<index column-list="elementId" unique="false"/>

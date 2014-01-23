@@ -1,7 +1,7 @@
 Blueprints JPA Graph
 ====================
 
- An implementation of the Blueprints API over JPA(1).
+ An implementation of the Blueprints API over [JPA](http://en.wikipedia.org/wiki/Java_Persistence_API)(1).
  
 The reason I implemented blueprints-jpa-graph is that I was attracted to the ObjectDB(2)'s performance(3).
 
@@ -13,15 +13,15 @@ The reason I implemented blueprints-jpa-graph is that I was attracted to the Obj
 Blueprints support
 ==================
 
-* Support all features, except supportsThreadedTransactions.
+* Support all features, except [supportsThreadedTransactions](https://groups.google.com/d/msg/gremlin-users/6ys0OnNPk2s/wxF_TjoZ_S0J).
 * Support [SailGraph](https://github.com/tinkerpop/blueprints/wiki/Sail-Implementation).
 
 JPA support
 ==================
 
-* ObjectDB
-* EclipseLink
-* Hibernate
+* [ObjectDB](http://www.objectdb.com/)
+* [EclipseLink](http://www.eclipse.org/eclipselink/)  (At this point, I recommend EclipseLink)
+* [Hibernate](http://hibernate.org/)
 
 Weak points
 ========
@@ -69,7 +69,7 @@ Maven Repository
 ==================
 
      <dependency>
-         <groupId>com.tinkerpop.blueprints</groupId>
+         <groupId>com.wingnest.blueprints</groupId>
          <artifactId>blueprints-jpa-graph</artifactId>
          <version>2.5.0-SNAPSHOT</version>
      </dependency>

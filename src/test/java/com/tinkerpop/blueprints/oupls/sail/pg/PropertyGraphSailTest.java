@@ -2,6 +2,7 @@ package com.tinkerpop.blueprints.oupls.sail.pg;
 
 import com.tinkerpop.blueprints.Graph;
 import com.tinkerpop.blueprints.impls.tg.TinkerGraph;
+import com.tinkerpop.blueprints.oupls.sail.pg.PropertyGraphSail;
 import com.tinkerpop.blueprints.util.io.graphml.GraphMLReader;
 import info.aduna.iteration.CloseableIteration;
 import net.fortytwo.sesametools.StatementComparator;

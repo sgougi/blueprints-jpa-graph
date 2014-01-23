@@ -5,7 +5,7 @@
                  xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_0.xsd"
                  version="2.0">
 
-	 <entity class="com.tinkerpop.blueprints.impls.jpa.internal.models.BpJpaElement" access="FIELD">
+	 <entity class="com.wingnest.blueprints.impls.jpa.internal.models.BpJpaElement" access="FIELD">
 		<table name="ELEMENT"></table>
 		<attributes>
 			<one-to-many name="propMap" orphan-removal="true" fetch="LAZY">
