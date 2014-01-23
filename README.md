@@ -1,9 +1,9 @@
 Blueprints JPA Graph
 ====================
 
- An implementation of the Blueprints API over JPA(*1).
+ An implementation of the Blueprints API over JPA(1).
  
-The reason I implemented blueprints-jpa-graph is that I was attracted to the ObjectDB(*2)'s performance(*3).
+The reason I implemented blueprints-jpa-graph is that I was attracted to the ObjectDB(2)'s performance(3).
 
 
 * 1:JPA: [http://en.wikipedia.org/wiki/Java_Persistence_API](http://en.wikipedia.org/wiki/Java_Persistence_API)
@@ -25,7 +25,7 @@ JPA support
 
 Weak points
 ========
-* IndexableGraph and KeyIndexableGraph have poor performance.
+* IndexableGraph and KeyIndexableGraph have poorer performance than native GraphDBs.
 * Adding massive data at one commit is very slow, then we should divide massive data into a plurality of sub-blocks.
 * I am poor in English.
 
