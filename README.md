@@ -6,9 +6,9 @@ Blueprints JPA Graph
 The reason I implemented blueprints-jpa-graph is that I was attracted to the ObjectDB(*2)'s performance(*3).
 
 
-*1:JPA: [http://en.wikipedia.org/wiki/Java_Persistence_API](http://en.wikipedia.org/wiki/Java_Persistence_API)
-*2:ObjectDB : [http://www.objectdb.com/](http://www.objectdb.com/)
-*3:JPA Performance Benchmark : [http://www.jpab.org/All/All/All.html](http://www.jpab.org/All/All/All.html)
+* 1:JPA: [http://en.wikipedia.org/wiki/Java_Persistence_API](http://en.wikipedia.org/wiki/Java_Persistence_API)
+* 2:ObjectDB : [http://www.objectdb.com/](http://www.objectdb.com/)
+* 3:JPA Performance Benchmark : [http://www.jpab.org/All/All/All.html](http://www.jpab.org/All/All/All.html)
 
 Blueprints support
 ==================
