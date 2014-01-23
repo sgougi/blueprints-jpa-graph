@@ -42,7 +42,8 @@ final public class VertexFacade {
 		if (jpaGraph == null) throw BpJpaExceptionFactory.cannotBeNull("jpaGraph");
 		try {
 			BpJpaVertex bpJpaVertex = new BpJpaVertex();
-			jpaGraph.getDamper().persist(jpaGraph,bpJpaVertex); 
+			jpaGraph.getDamper().persist(jpaGraph, bpJpaVertex);
+			//System.out.println(("after persist : bpJpaVertex = " + (bpJpaVertex.getVersion() == null ? "null" : bpJpaVertex.getVersion().toString())) ); 
 			return bpJpaVertex;
 		} catch (Exception e) { 
 			throw BpJpaExceptionFactory.reformExcepitonIfNeeds(e);
@@ -107,8 +108,19 @@ final public class VertexFacade {
 		try {
 			jpaGraph.getDamper().beforeFetch(jpaGraph);
 			BpJpaVertex bpJpaVertex = jpaVertex.getAsBpJpaVertex();
-			//if ( bpJpaVertex.getVersion() != null && bpJpaVertex.getVersion() > 1 && jpaGraph.getDamper().isObjectDB() )
-			//	jpaGraph.getRawGraph().refresh(bpJpaVertex);
+			if(jpaGraph.getDamper().isObjectDB()) {
+				boolean bGraphTest = bpJpaVertex.getVersion() == null && bpJpaVertex.getVersion() > 1; // maybe ObjectDB's bug
+				if(bGraphTest) {
+					/* noop */
+				} else {
+					if ( bpJpaVertex.getVersion() != null && bpJpaVertex.getVersion() > 1 ) {
+						jpaGraph.getRawGraph().refresh(bpJpaVertex);			
+					}				
+				}
+			} else {
+				// EclipseLink, Hibernate
+				/* noop */			
+			}
 			List<BpJpaEdge> edges = bpJpaVertex.getEdges(jpaGraph.getRawGraph(), direction, labels);
 			return new JpaEdgeIterable(jpaGraph, edges);
 		} catch (Exception e) { 

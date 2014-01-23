@@ -15,7 +15,7 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 	 	<mapping-file>META-INF/BpJpaEntity.normal.xml</mapping-file>
 	 	<mapping-file>META-INF/BpJpaIndexBase.normal.xml</mapping-file>
 	 	<mapping-file>META-INF/BpJpaElement.nq.normal.xml</mapping-file>	 		
-	 	<mapping-file>META-INF/BpJpaElement.normal.xml</mapping-file>	
+	 	<mapping-file>META-INF/BpJpaElement.eclipselink.xml</mapping-file>	
 		<mapping-file>META-INF/BpJpaVertex.nq.normal.xml</mapping-file>
 		<mapping-file>META-INF/BpJpaVertex.normal.xml</mapping-file>
 	 	<mapping-file>META-INF/BpJpaEdge.nq.normal.xml</mapping-file>
@@ -51,7 +51,7 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
  		<mapping-file>META-INF/BpJpaEntity.normal.xml</mapping-file>	    
 	 	<mapping-file>META-INF/BpJpaIndexBase.normal.xml</mapping-file>
 	 	<mapping-file>META-INF/BpJpaElement.nq.normal.xml</mapping-file>		
-	 	<mapping-file>META-INF/BpJpaElement.normal.xml</mapping-file>	 	
+	 	<mapping-file>META-INF/BpJpaElement.eclipselink.xml</mapping-file>	 	
 		<mapping-file>META-INF/BpJpaVertex.nq.normal.xml</mapping-file>
 		<mapping-file>META-INF/BpJpaVertex.normal.xml</mapping-file>
 	 	<mapping-file>META-INF/BpJpaEdge.nq.normal.xml</mapping-file>
@@ -118,7 +118,7 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 	<persistence-unit name="ObjectDbUnit" transaction-type="RESOURCE_LOCAL">
 		<provider>com.objectdb.jpa.Provider</provider>
 		<mapping-file>META-INF/BpJpaElement.nq.objectdb.xml</mapping-file>
-	 	<mapping-file>META-INF/BpJpaElement.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaElement.objectdb.xml</mapping-file>
 		<mapping-file>META-INF/BpJpaVertex.nq.objectdb.xml</mapping-file>	 				 	
 		<mapping-file>META-INF/BpJpaVertex.normal.xml</mapping-file>
 		<mapping-file>META-INF/BpJpaEdge.normal.xml</mapping-file>

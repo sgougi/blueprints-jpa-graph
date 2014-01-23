@@ -87,9 +87,17 @@ final public class ElementFacade {
 		if (property == null) {
 			BpJpaElement bpJpaElement = jpaElement.getAsBpJpaElement(); 
 			property = new BpJpaProperty(key, value, bpJpaElement);
-//			if (! jpaGraph.getDamper().isObjectDB() )
-				jpaGraph.getDamper().persist(jpaGraph, property);
-			bpJpaElement.putProperty(property);
+			if(jpaGraph.getDamper().isObjectDB()) {
+				boolean bGraphTest = ! (bpJpaElement.getKeys().size() > 0); // maybe ObjectDB's bug
+				if(bGraphTest) {
+					jpaGraph.getDamper().persist(jpaGraph, property);
+					bpJpaElement.putProperty(property);
+				} else {
+					bpJpaElement.putProperty(property);				
+				}
+			} else {
+				bpJpaElement.putProperty(property);			
+			}
 			jpaGraph.getBpJpaKeyIndexManager().createKeyIndexedPropertyIfNeeds(property);
 		} else {
 			property.setValue(value);

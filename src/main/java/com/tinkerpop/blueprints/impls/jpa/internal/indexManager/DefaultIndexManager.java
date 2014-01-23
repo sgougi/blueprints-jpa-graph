@@ -211,7 +211,6 @@ public class DefaultIndexManager implements BpJpaIndexManager {
 		if (key.length() == 0) throw BpJpaExceptionFactory.cannotBeEmpty("key");
 		if (value == null) throw BpJpaExceptionFactory.cannotBeNull("value");	
 		try {
-			if ( jpaIndex == null ) throw new IllegalStateException("jpaIndex must not be null");
 			jpaGraph.getDamper().beforeFetch(jpaGraph);
 			long count = BpJpaIndexItem.count(getEntityManager(), jpaIndex.getIndexName(), key, value);
 			return count;
