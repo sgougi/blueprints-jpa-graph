@@ -1,7 +1,14 @@
 Blueprints JPA Graph
 ====================
 
- An implementation of the Blueprints API over JPA.
+ An implementation of the Blueprints API over JPA(*1).
+ 
+The reason I implemented blueprints-jpa-graph is that I was attracted to the ObjectDB(*2)'s performance(*3).
+
+
+*1:JPA: [http://en.wikipedia.org/wiki/Java_Persistence_API](http://en.wikipedia.org/wiki/Java_Persistence_API)
+*2:ObjectDB : [http://www.objectdb.com/](http://www.objectdb.com/)
+*3:JPA Performance Benchmark : [http://www.jpab.org/All/All/All.html](http://www.jpab.org/All/All/All.html)
 
 Blueprints support
 ==================
@@ -48,6 +55,11 @@ Installing into the Maven local repository manually
 ================================================
 
      % ant install -DskipTests=true
+
+Run GraphTest
+===============
+
+     % ant test-all
 
 Executing Gremlin
 ================
