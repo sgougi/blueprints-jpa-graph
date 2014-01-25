@@ -78,6 +78,13 @@ These will probably be a good reference for that you integrate into your system 
 Integration
 ===========
 
+#### Constracting a JpaGraph in Java code
+
+* see [wiki/Constracting-a-JpaGraph-in-Java-code](https://github.com/sgougi/blueprints-jpa-graph/wiki/Constracting-a-JpaGraph-in-Java-code)
+
+* Sample Maven Dependencies
+
+
 #### Using GraphFactory
 
 If using [GraphFactory](https://github.com/tinkerpop/blueprints/wiki/Code-Examples#use-graphfactory) to instantiate a JpaGraph, the following properties will apply:
