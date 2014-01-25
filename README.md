@@ -68,12 +68,13 @@ Samples
 ========
 These will probably be a good reference for that you integrate into your system with JpaGraph.
 
-* Running [Gremlin](https://github.com/tinkerpop/gremlin/wiki) with JpaGraph
-     *  see [gremlin/README.md](gremlin/README.md)
+#### Running [Gremlin](https://github.com/tinkerpop/gremlin/wiki) with JpaGraph
 
-* Running [Rexster](https://github.com/tinkerpop/rexster/wiki) with JpaGraph
-    *  see [rexster/README.md](rexster/README.md)
+* see [gremlin/README.md](gremlin/README.md)
 
+#### Running [Rexster](https://github.com/tinkerpop/rexster/wiki) with JpaGraph
+
+* see [rexster/README.md](rexster/README.md)
 
 Integration
 ===========
