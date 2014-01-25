@@ -82,7 +82,9 @@ Integration
 
 * see [wiki/Constracting-a-JpaGraph-in-Java-code](https://github.com/sgougi/blueprints-jpa-graph/wiki/Constracting-a-JpaGraph-in-Java-code)
 
-* Sample Maven Dependencies
+#### Sample Maven Dependencies
+
+* see [wiki/Sample-Maven-Dependencies](https://github.com/sgougi/blueprints-jpa-graph/wiki/Sample-Maven-Dependencies)
 
 
 #### Using GraphFactory
