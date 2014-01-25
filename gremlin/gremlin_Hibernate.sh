@@ -17,7 +17,7 @@ fi
 
 # Set Java options
 if [ "$JAVA_OPTIONS" = "" ] ; then
-    JAVA_OPTIONS="-Xms32m -Xmx512m -Djpa.graph.default.unit=HibernateUnit"
+    JAVA_OPTIONS="-Xms32m -Xmx512m -Djpagraph.unit-name=HibernateUnit"
 fi
 
 # Launch the application

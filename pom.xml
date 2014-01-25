@@ -54,7 +54,7 @@
 				                <value>DefaultUnit</value>
 				            </property>
 				            <property>
-				            	<name>jpa.graph.default.unit</name>
+				            	<name>jpagraph.unit-name</name>
 				            	<value>DefaultUnit</value>
 				            </property>
 				        </systemProperties>
@@ -85,7 +85,7 @@
 			<artifactId>blueprints-core</artifactId>
 			<version>${blueprints.version}</version>
 		</dependency>
-
+		
 		<dependency>
 			<groupId>javax.jdo</groupId>
 			<artifactId>jdo2-api</artifactId>
@@ -230,8 +230,8 @@
     	    <id>thirdparty-releases</id>
         	<name>JBoss Thirdparty Releases</name>
         	<url>https://repository.jboss.org/nexus/content/repositories/thirdparty-releases</url>
-	    </repository>    		
-
+	    </repository>
+        
 	</repositories>
 
 	<distributionManagement>  

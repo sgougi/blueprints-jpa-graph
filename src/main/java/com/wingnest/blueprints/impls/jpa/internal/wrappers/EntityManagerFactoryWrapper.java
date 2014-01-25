@@ -21,6 +21,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import org.apache.commons.configuration.Configuration;
+import org.apache.commons.configuration.HierarchicalConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -43,6 +45,10 @@ final public class EntityManagerFactoryWrapper {
 	public EntityManagerFactoryWrapper(String persistanceUnitName) {
 		this(persistanceUnitName, null);
 	}
+	
+	public EntityManagerFactoryWrapper(Map<String, Object> props) {
+		this(null, props);
+	}
 
 	public EntityManagerFactoryWrapper(EntityManagerFactory entityManagerFactory) {
 		super();
@@ -52,8 +58,8 @@ final public class EntityManagerFactoryWrapper {
 		this.damper = DamperFactory.create(this.entityManagerFactory);
 	}
 
-	public EntityManagerFactoryWrapper(String persistanceUnitName, Map<String, Object> props) {
-		String pPersistanceUnitName = persistanceUnitName != null ? persistanceUnitName : System.getProperty("jpa.graph.default.unit", "DefaultUnit");
+	public EntityManagerFactoryWrapper(String persistanceUnitName, @SuppressWarnings("rawtypes") Map props) {
+		String pPersistanceUnitName = persistanceUnitName != null ? persistanceUnitName : System.getProperty("jpagraph.unit-name", "DefaultUnit");
 		if (pPersistanceUnitName == null) throw BpJpaExceptionFactory.cannotBeNull("pPersistanceUnitName");
 		if (pPersistanceUnitName.length() == 0) throw BpJpaExceptionFactory.cannotBeEmpty("pPersistanceUnitName");
 		
@@ -67,8 +73,21 @@ final public class EntityManagerFactoryWrapper {
 		}
 	}
 	
-	public EntityManager createEntityManager(Map<String, Object> map) {
-		EntityManager entityManager = entityManagerFactory.createEntityManager(map);
+	public EntityManagerFactoryWrapper(Configuration configuration) {
+		this(getUnitName(configuration), getProperties(configuration));	
+	}
+	
+	private static String getUnitName(Configuration configuration) {
+		return configuration.getString("blueprints.jpagraph.unit-name");
+	}
+	
+	@SuppressWarnings("rawtypes")
+	private static Map getProperties(Configuration configuration) {
+		return ((HierarchicalConfiguration)configuration).getProperties("blueprints.jpagraph.persistence-unit-properties");
+	}	
+
+	public EntityManager createEntityManager(@SuppressWarnings("rawtypes") Map props) {
+		EntityManager entityManager = entityManagerFactory.createEntityManager(props);
 		return entityManager;		
 	}
 

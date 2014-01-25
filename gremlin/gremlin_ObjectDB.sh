@@ -17,7 +17,7 @@ fi
 
 # Set Java options
 if [ "$JAVA_OPTIONS" = "" ] ; then
-    JAVA_OPTIONS="-Xms32m -Xmx512m -Djpa.graph.default.unit=ObjectDbUnit"
+    JAVA_OPTIONS="-Xms32m -Xmx512m -Djpagraph.unit-name=ObjectDbUnit"
 fi
 
 # Launch the application

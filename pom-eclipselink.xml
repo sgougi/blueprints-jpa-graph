@@ -40,7 +40,7 @@
 				                <value>EclipseLinkUnit</value>
 				            </property>
 				            <property>
-				            	<name>jpa.graph.default.unit</name>
+				            	<name>jpagraph.unit-name</name>
 				            	<value>EclipseLinkUnit</value>
 				            </property>
 				        </systemProperties>

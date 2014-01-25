@@ -38,7 +38,6 @@ import com.tinkerpop.blueprints.impls.GraphTest;
 import com.tinkerpop.blueprints.util.io.gml.GMLReaderTestSuite;
 import com.tinkerpop.blueprints.util.io.graphml.GraphMLReaderTestSuite;
 import com.tinkerpop.blueprints.util.io.graphson.GraphSONReaderTestSuite;
-import com.wingnest.blueprints.impls.jpa.JpaGraph;
 
 public class JpaGraphTest extends GraphTest {
 

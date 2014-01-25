@@ -1,11 +1,17 @@
 package com.tinkerpop.blueprints.oupls.sail.pg;
 
-import com.tinkerpop.blueprints.Graph;
-import com.tinkerpop.blueprints.impls.tg.TinkerGraph;
-import com.tinkerpop.blueprints.oupls.sail.pg.PropertyGraphSail;
-import com.tinkerpop.blueprints.util.io.graphml.GraphMLReader;
+import static junit.framework.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 import info.aduna.iteration.CloseableIteration;
+
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.Set;
+import java.util.TreeSet;
+
 import net.fortytwo.sesametools.StatementComparator;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,14 +36,9 @@ import org.openrdf.rio.Rio;
 import org.openrdf.sail.SailConnection;
 import org.openrdf.sail.SailException;
 
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.Set;
-import java.util.TreeSet;
-
-import static junit.framework.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
+import com.tinkerpop.blueprints.Graph;
+import com.tinkerpop.blueprints.impls.tg.TinkerGraph;
+import com.tinkerpop.blueprints.util.io.graphml.GraphMLReader;
 
 /**
  * @author Joshua Shinavier (http://fortytwo.net)

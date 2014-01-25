@@ -40,7 +40,7 @@
 				                <value>ObjectDbUnit</value>
 				            </property>
 				            <property>
-				            	<name>jpa.graph.default.unit</name>
+				            	<name>jpagraph.unit-name</name>
 				            	<value>ObjectDbUnit</value>
 				            </property>				            
 				        </systemProperties>

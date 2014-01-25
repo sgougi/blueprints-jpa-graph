@@ -27,6 +27,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 
+import org.apache.commons.configuration.Configuration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -107,6 +108,10 @@ public class JpaGraph implements
 	
 	////　constructors
 	
+    public JpaGraph(final Configuration configuration) {
+    	this(new EntityManagerFactoryWrapper(configuration));
+	}
+	
 	public JpaGraph() {
 		this(new EntityManagerFactoryWrapper());
 	}
@@ -115,11 +120,11 @@ public class JpaGraph implements
 		this(new EntityManagerFactoryWrapper(persistanceUnitName));
 	}
 		
-	public JpaGraph(String persistanceUnitName, Map<String, Object> propertiesForEntityManager) {
+	public JpaGraph(String persistanceUnitName, @SuppressWarnings("rawtypes") Map propertiesForEntityManager) {
 		this(new EntityManagerFactoryWrapper(persistanceUnitName, propertiesForEntityManager));
 	}
 	
-	public JpaGraph(EntityManagerFactory entityManagerFactory, Map<String, Object> propertiesForEntityManager) {
+	public JpaGraph(EntityManagerFactory entityManagerFactory, @SuppressWarnings("rawtypes") Map propertiesForEntityManager) {
 		this(new EntityManagerFactoryWrapper(entityManagerFactory));
 	}
 	

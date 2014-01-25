@@ -1,12 +1,12 @@
 package com.wingnest.blueprints.oupls.sail;
 
-import com.tinkerpop.blueprints.Edge;
-import com.tinkerpop.blueprints.Graph;
-import com.tinkerpop.blueprints.KeyIndexableGraph;
-import com.tinkerpop.blueprints.Vertex;
-import com.tinkerpop.blueprints.oupls.sail.GraphSail;
-import com.tinkerpop.blueprints.impls.tg.TinkerGraph;
+import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertTrue;
 import info.aduna.iteration.CloseableIteration;
+
+import java.io.File;
+import java.net.URL;
+
 import org.junit.Test;
 import org.openrdf.model.Statement;
 import org.openrdf.model.URI;
@@ -23,11 +23,12 @@ import org.openrdf.sail.Sail;
 import org.openrdf.sail.SailConnection;
 import org.openrdf.sail.SailException;
 
-import java.io.File;
-import java.net.URL;
-
-import static junit.framework.Assert.assertEquals;
-import static junit.framework.Assert.assertTrue;
+import com.tinkerpop.blueprints.Edge;
+import com.tinkerpop.blueprints.Graph;
+import com.tinkerpop.blueprints.KeyIndexableGraph;
+import com.tinkerpop.blueprints.Vertex;
+import com.tinkerpop.blueprints.impls.tg.TinkerGraph;
+import com.tinkerpop.blueprints.oupls.sail.GraphSail;
 
 /**
  * @author Joshua Shinavier (http://fortytwo.net)

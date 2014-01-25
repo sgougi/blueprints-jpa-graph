@@ -1,6 +1,21 @@
 package com.wingnest.blueprints.oupls.sail;
 
+import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertFalse;
+import static junit.framework.Assert.assertNotNull;
+import static junit.framework.Assert.assertNull;
+import static junit.framework.Assert.assertTrue;
 import info.aduna.iteration.CloseableIteration;
+
+import java.io.InputStream;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Set;
+
+import javax.xml.datatype.XMLGregorianCalendar;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -36,16 +51,6 @@ import org.openrdf.sail.SailConnectionListener;
 import org.openrdf.sail.SailException;
 import org.openrdf.sail.inferencer.InferencerConnection;
 import org.openrdf.sail.inferencer.fc.ForwardChainingRDFSInferencer;
-
-import javax.xml.datatype.XMLGregorianCalendar;
-import java.io.InputStream;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Set;
-
-import static junit.framework.Assert.*;
 
 /**
  * @author Joshua Shinavier (http://fortytwo.net)

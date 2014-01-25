@@ -1,4 +1,4 @@
-<project name="hello-ivy" default="run" xmlns:ivy="antlib:org.apache.ivy.ant">
+<project name="gremlin" default="run" xmlns:ivy="antlib:org.apache.ivy.ant">
 	<property name="ivy.install.version" value="2.3.0" />
 	<property name="ivy.jar.dir" value="${basedir}/ivy" />
 	<property name="ivy.jar.file" value="${ivy.jar.dir}/ivy.jar" />

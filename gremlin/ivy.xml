@@ -54,9 +54,7 @@
         <exclude org="org.tinkerpop.blueprints" artifact="blueprints-orient-graph" />
         <exclude org="org.tinkerpop.blueprints" artifact="blueprints-rexstert-graph" />
         <exclude org="org.tinkerpop.blueprints" artifact="blueprints-sail-graph" />
-<!--
-        <exclude org="junit" artifact="junit" />
--->                
+              
     </dependencies>
    
 </ivy-module>

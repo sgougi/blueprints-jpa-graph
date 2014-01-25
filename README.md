@@ -10,15 +10,16 @@ The reason I implemented blueprints-jpa-graph is that I was attracted to the Obj
 * 2:ObjectDB : [http://www.objectdb.com/](http://www.objectdb.com/)
 * 3:JPA Performance Benchmark : [http://www.jpab.org/All/All/All.html](http://www.jpab.org/All/All/All.html)
 
-Blueprints support
+Support Features
 ==================
 
-* Support all features, except [supportsThreadedTransactions](https://groups.google.com/d/msg/gremlin-users/6ys0OnNPk2s/wxF_TjoZ_S0J).
-* Support [SailGraph](https://github.com/tinkerpop/blueprints/wiki/Sail-Implementation).
+* All Blueprints features support, except [ThreadedTransactions](https://groups.google.com/d/msg/gremlin-users/6ys0OnNPk2s/wxF_TjoZ_S0J)
+* [Sail](https://github.com/tinkerpop/blueprints/wiki/Sail-Implementation) support 
+* [Rexster](https://github.com/tinkerpop/blueprints/wiki/Rexster-Implementation) support
+* [GraphFactory](https://github.com/tinkerpop/blueprints/wiki/Implementations#graphfactory-support) support
 
-JPA support
+Support JPAs
 ==================
-
 * [ObjectDB](http://www.objectdb.com/)
 * [EclipseLink](http://www.eclipse.org/eclipselink/)  (At this point, I recommend EclipseLink)
 * [Hibernate](http://hibernate.org/)
@@ -54,16 +55,31 @@ Micro benchmark only as a guide
 Installing into the Maven local repository manually
 ================================================
 
-     % ant install -DskipTests=true
+     % mvn install -DskipTests=true
 
-Run GraphTest
-===============
+Running [Property Graph Model Test Suite](https://github.com/tinkerpop/blueprints/wiki/Property-Graph-Model-Test-Suite)
+=================
 
      % ant test-all
 
-Executing Gremlin
+Samples
+========
+These will probably be a good reference for that you integrate into your system with JpaGraph.
+
+* Running [Gremlin](https://github.com/tinkerpop/gremlin/wiki) with JpaGraph
+     *  see [gremlin/README.md](gremlin/README.md)
+
+* Running [Rexster](https://github.com/tinkerpop/rexster/wiki) with JpaGraph
+    *  see [rexster/README.md](rexster/README.md)
+
+Using GraphFactory
 ================
- - see [gremlin/README.md](gremlin/README.md)
+If using [GraphFactory](https://github.com/tinkerpop/blueprints/wiki/Code-Examples#use-graphfactory) to instantiate a OrientGraph, the following properties will apply:
+
+|            Key                                                                         |   Description                         |
+|:---------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------:|
+|           blueprints.jpagraph.unit-name             |            set  a persistance unit name:  'EclipseLinkUnit'  or 'HibernateUnit'   or  ObjectDBUnit'          |
+ |   blueprints.jpagraph.persistence-unit-properties | set persistence unit properties if it is necessary                                           |
 
 Maven Repository
 ==================

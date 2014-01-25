@@ -12,11 +12,11 @@ import com.tinkerpop.blueprints.Edge;
 import com.tinkerpop.blueprints.KeyIndexableGraph;
 import com.tinkerpop.blueprints.TransactionalGraph;
 import com.tinkerpop.blueprints.Vertex;
-import com.wingnest.blueprints.impls.jpa.performance.models.SimpleEdge;
-import com.wingnest.blueprints.impls.jpa.performance.models.SimpleVertex;
 import com.tinkerpop.frames.FramedGraphFactory;
 import com.tinkerpop.frames.FramedTransactionalGraph;
 import com.wingnest.blueprints.impls.jpa.JpaGraph;
+import com.wingnest.blueprints.impls.jpa.performance.models.SimpleEdge;
+import com.wingnest.blueprints.impls.jpa.performance.models.SimpleVertex;
 
 public class PerformanceTest  extends TestCase
 {

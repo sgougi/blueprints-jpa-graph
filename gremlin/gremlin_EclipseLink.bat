@@ -9,7 +9,7 @@ set CP=
 
 for %%i in (%LIBDIR%\*.jar) do call :concatsep %%i
 
-set JAVA_OPTIONS=-Xms32m -Xmx512m -Djpa.graph.default.unit=EclipseLinkUnit
+set JAVA_OPTIONS=-Xms32m -Xmx512m -Djpagraph.unit-name=EclipseLinkUnit
 
 :: Launch the application
 
