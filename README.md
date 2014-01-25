@@ -42,8 +42,8 @@ Micro benchmark only as a guide
 | GraphTestSuite             |    4392.80     |       7969.95        |     18427.35         |  7763.33     |   5631.75    |
 | GraphQueryTestSuite        |     419.23     |        338.75        |      1585.12         |   938.26     |    633.13    |
 | GraphMLReaderTestSuite     |    2269.13     |       1435.05        |      3588.97         |  2193.59     |   2771.08    |
-| IndexableGraphTestSuite    |    2528.38     |        438.25        |      3092.67         |  2526.43     |     -        |
-| IndexTestSuite             |     472.26     |       1435.05        |      1109.06         |  1299.97     |     -        |
+| IndexableGraphTestSuite    |     472.26     |        438.25        |      3092.67         |  2526.43     |     -        |
+| IndexTestSuite             |    2528.38     |       1435.05        |      1109.06         |  1299.97     |     -        |
 | KeyIndexableGraphTestSuite |    1486.62     |        979.66        |      4930.77         |  1566.96     |     -        |
 | TransactionGraphTestSuite  |   15300.70(*4) |      22021.37(*4)    |     34268.88(*4)     |  6050.46     |     -        |
 
