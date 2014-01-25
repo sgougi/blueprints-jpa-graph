@@ -80,7 +80,7 @@ Integration
 
 #### Using GraphFactory
 
-If using [GraphFactory](https://github.com/tinkerpop/blueprints/wiki/Code-Examples#use-graphfactory) to instantiate a OrientGraph, the following properties will apply:
+If using [GraphFactory](https://github.com/tinkerpop/blueprints/wiki/Code-Examples#use-graphfactory) to instantiate a JpaGraph, the following properties will apply:
 
 |            Key                                                                         |   Description                         |
 |:---------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------:|
