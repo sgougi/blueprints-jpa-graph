@@ -66,7 +66,7 @@ Testing and Installing
 
 Samples
 ========
-These will probably be a good reference for that you integrate into your system with JpaGraph.
+These will probably be good references for that you integrate into your system with JpaGraph.
 
 #### Running [Gremlin](https://github.com/tinkerpop/gremlin/wiki) with JpaGraph
 
