@@ -52,13 +52,15 @@ Micro benchmark only as a guide
      *3: mvn test -Dtest=DexGraphTest
      *4: JpaGraph.getVertices()/getEdges() are slightly slow.
 
-Installing into the Maven local repository manually
-================================================
+Testing and Installing
+======================
+
+#### Installing into the Maven local repository manually
 
      % mvn install -DskipTests=true
 
-Running [Property Graph Model Test Suite](https://github.com/tinkerpop/blueprints/wiki/Property-Graph-Model-Test-Suite)
-=================
+#### Running [Property Graph Model Test Suite](https://github.com/tinkerpop/blueprints/wiki/Property-Graph-Model-Test-Suite)
+
 
      % ant test-all
 
@@ -72,14 +74,19 @@ These will probably be a good reference for that you integrate into your system 
 * Running [Rexster](https://github.com/tinkerpop/rexster/wiki) with JpaGraph
     *  see [rexster/README.md](rexster/README.md)
 
-Using GraphFactory
-================
+
+Integration
+===========
+
+#### Using GraphFactory
+
 If using [GraphFactory](https://github.com/tinkerpop/blueprints/wiki/Code-Examples#use-graphfactory) to instantiate a OrientGraph, the following properties will apply:
 
 |            Key                                                                         |   Description                         |
 |:---------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------:|
-|           blueprints.jpagraph.unit-name             |            set  a persistance unit name:  'EclipseLinkUnit'  or 'HibernateUnit'   or  ObjectDBUnit'          |
- |   blueprints.jpagraph.persistence-unit-properties | set persistence unit properties if it is necessary                                           |
+|           blueprints.jpagraph.unit-name    |     set  a persistance unit name:  'EclipseLinkUnit'  or 'HibernateUnit'   or  ObjectDBUnit'          |
+|   blueprints.jpagraph.persistence-unit-properties | set persistence unit properties if it is necessary   |
+
 
 Maven Repository
 ==================
