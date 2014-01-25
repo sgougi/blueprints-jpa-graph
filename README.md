@@ -84,7 +84,7 @@ If using [GraphFactory](https://github.com/tinkerpop/blueprints/wiki/Code-Exampl
 
 |            Key                                                                         |   Description                         |
 |:---------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------:|
-|           blueprints.jpagraph.unit-name    |     set  a persistance unit name:  'EclipseLinkUnit'  or 'HibernateUnit'   or  ObjectDBUnit'          |
+|           blueprints.jpagraph.unit-name    |     set  a persistance unit name:  'EclipseLinkUnit'  or 'HibernateUnit'   or  'ObjectDbUnit'          |
 |   blueprints.jpagraph.persistence-unit-properties | set persistence unit properties if it is necessary   |
 
 
