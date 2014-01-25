@@ -15,7 +15,7 @@ Support Features
 
 * All Blueprints features support, except [ThreadedTransactions](https://groups.google.com/d/msg/gremlin-users/6ys0OnNPk2s/wxF_TjoZ_S0J)
 * [Sail](https://github.com/tinkerpop/blueprints/wiki/Sail-Implementation) support 
-* [Rexster](https://github.com/tinkerpop/blueprints/wiki/Rexster-Implementation) support
+* [Rexster](https://github.com/tinkerpop/rexster/wiki) support
 * [GraphFactory](https://github.com/tinkerpop/blueprints/wiki/Implementations#graphfactory-support) support
 
 Support JPAs
