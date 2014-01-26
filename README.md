@@ -33,19 +33,20 @@ Weak points
 Micro benchmark only as a guide
 ===============================
 
-|                            | JPA:ObjectDB(*1)| JPA:EclipseLink+Derby|  JPA:Hibernate+Derby |   OrientDB    |   DEX      |
-|:---------------------------|----------------|----------------------|----------------------|--------------|-------------:|
-|                            | 2.5.0-SNAPSHOT |     2.5.0-SNAPSHOT   |    2.5.0-SNAPSHOT    |  2.4.0(*2)   |   2.4.0(*3)  |
-| VertexTestSuite            |    3184.87     |       3650.64        |      7594.04         |  5731.31     |   5051.43    |
-| VertexQueryTestSuite       |     850.28     |        749.70        |      1979.19         |  2023.91     |   1482.64    |
-| EdgeTestSuite              |    2201.05     |       2176.02        |      5690.72         |  7829.16     |   4416.40    |
-| GraphTestSuite             |    4392.80     |       7969.95        |     18427.35         |  7763.33     |   5631.75    |
-| GraphQueryTestSuite        |     419.23     |        338.75        |      1585.12         |   938.26     |    633.13    |
-| GraphMLReaderTestSuite     |    2269.13     |       1435.05        |      3588.97         |  2193.59     |   2771.08    |
-| IndexableGraphTestSuite    |     472.26     |        438.25        |      3092.67         |  2526.43     |     -        |
-| IndexTestSuite             |    2528.38     |       1435.05        |      1109.06         |  1299.97     |     -        |
-| KeyIndexableGraphTestSuite |    1486.62     |        979.66        |      4930.77         |  1566.96     |     -        |
-| TransactionGraphTestSuite  |   15300.70(*4) |      22021.37(*4)    |     34268.88(*4)     |  6050.46     |     -        |
+
+|                            |   [OrientDB](http://www.orientechnologies.com/orientdb/)   | JPA:ObjectDB(*1)| JPA:EclipseLink+Derby|  JPA:Hibernate+Derby |   DEX        |
+|:---------------------------|--------------|-----------------|----------------------|----------------------|-------------:|
+|                            |  2.4.0(*2)   |  2.5.0-SNAPSHOT |     2.5.0-SNAPSHOT   |    2.5.0-SNAPSHOT    |   2.4.0(*3)  |
+| VertexTestSuite            |  5731.31     |     3184.87     |       3650.64        |      7594.04         |   5051.43    |
+| VertexQueryTestSuite       |  2023.91     |      850.28     |        749.70        |      1979.19         |   1482.64    |
+| EdgeTestSuite              |  7829.16     |     2201.05     |       2176.02        |      5690.72         |   4416.40    |
+| GraphTestSuite             |  7763.33     |     4392.80     |       7969.95        |     18427.35         |   5631.75    |
+| GraphQueryTestSuite        |   938.26     |      419.23     |        338.75        |      1585.12         |    633.13    |
+| GraphMLReaderTestSuite     |  2193.59     |     2269.13     |       1435.05        |      3588.97         |   2771.08    |
+| IndexableGraphTestSuite    |  2526.43     |      472.26     |        438.25        |      3092.67         |     -        |
+| IndexTestSuite             |  1299.97     |     2528.38     |       1435.05        |      1109.06         |     -        |
+| KeyIndexableGraphTestSuite |  1566.96     |     1486.62     |        979.66        |      4930.77         |     -        |
+| TransactionGraphTestSuite  |  6050.46     |    15300.70(*4) |      22021.37(*4)    |     34268.88(*4)     |     -        |
 
      *1: ObjectDB 2.5.4
      *2: mvn test -Dtest=OrientGraphLightweightEdgesTest
