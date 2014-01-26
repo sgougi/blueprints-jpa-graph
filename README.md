@@ -47,6 +47,7 @@ Micro benchmark only as a guide
 | IndexTestSuite             |  1299.97     |     2528.38     |       1435.05        |      1109.06         |     -        |
 | KeyIndexableGraphTestSuite |  1566.96     |     1486.62     |        979.66        |      4930.77         |     -        |
 | TransactionGraphTestSuite  |  6050.46     |    15300.70(*4) |      22021.37(*4)    |     34268.88(*4)     |     -        |
+(msec)
 
      *1: ObjectDB 2.5.4
      *2: mvn test -Dtest=OrientGraphLightweightEdgesTest
