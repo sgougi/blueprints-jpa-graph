@@ -121,7 +121,6 @@ public class BpJpaKeyIndex extends BpJpaIndexBase {
 				.setParameter("elementType", ElementType.VERTEX.toString())
 				.setParameter("keyName", key)
 				.setParameter("indexValue", value.toString());
-
 		@SuppressWarnings("unchecked")
 		List<BpJpaVertex> rt = (List<BpJpaVertex>)(List<? extends BpJpaElement>)q.getResultList();
 		return rt;
@@ -135,7 +134,6 @@ public class BpJpaKeyIndex extends BpJpaIndexBase {
 				.setParameter("elementType", ElementType.EDGE.toString())
 				.setParameter("keyName", key)
 				.setParameter("indexValue", value.toString());
-
 		@SuppressWarnings("unchecked")
 		List<BpJpaEdge> rt = (List<BpJpaEdge>)(List<? extends BpJpaElement>)q.getResultList();
 		return rt;

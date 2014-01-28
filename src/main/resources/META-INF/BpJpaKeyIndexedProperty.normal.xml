@@ -7,7 +7,7 @@
 
 	 <entity class="com.wingnest.blueprints.impls.jpa.internal.models.index.BpJpaKeyIndexedProperty" access="FIELD">
 		<table name="KEY_INDEXED_PROPERTY">
- 			<index column-list="propertyId,indexValue,keyName,elementType" unique="false"/>
+ 			<index column-list="indexValue,keyName" unique="false"/> 			
  			<index column-list="elementId" unique="false"/>
 		</table>
 		<attributes>

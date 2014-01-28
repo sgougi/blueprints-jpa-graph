@@ -16,11 +16,10 @@
 	<named-query name="BpJpaKeyIndex_getElementsByUsingKeyIndex">
 		<query>SELECT p.element FROM BpJpaKeyIndexedProperty i, BpJpaProperty p
 			where
-					i.propertyId = p.id    
-    		    AND i.indexValue = :indexValue
+    		        i.indexValue = :indexValue
  				AND i.keyName = :keyName
- 				AND i.elementType = :elementType    		    
+ 				AND i.elementType = :elementType    		        
+ 				AND	i.propertyId = p.id        		    
 		</query>
 	</named-query>
-		
 </entity-mappings>

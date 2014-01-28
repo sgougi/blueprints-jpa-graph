@@ -21,7 +21,7 @@ Support Features
 Support JPAs
 ==================
 * [ObjectDB](http://www.objectdb.com/)
-* [EclipseLink](http://www.eclipse.org/eclipselink/)  (At this point, I recommend EclipseLink)
+* [EclipseLink](http://www.eclipse.org/eclipselink/) 
 * [Hibernate](http://hibernate.org/)
 
 Weak points
@@ -36,23 +36,26 @@ Micro benchmark only as a guide
 
 |                            |   [OrientDB](http://www.orientechnologies.com/orientdb/)   | JPA:ObjectDB(*1)| JPA:EclipseLink+Derby|  JPA:Hibernate+Derby |   [DEX](http://www.sparsity-technologies.com/dex)        |
 |:---------------------------|--------------|-----------------|----------------------|----------------------|-------------:|
-|                            |  2.4.0(*2)   |  2.5.0-SNAPSHOT |     2.5.0-SNAPSHOT   |    2.5.0-SNAPSHOT    |   2.4.0(*3)  |
-| VertexTestSuite            |  5731.31     |     3184.87     |       3650.64        |      7594.04         |   5051.43    |
-| VertexQueryTestSuite       |  2023.91     |      850.28     |        749.70        |      1979.19         |   1482.64    |
-| EdgeTestSuite              |  7829.16     |     2201.05     |       2176.02        |      5690.72         |   4416.40    |
-| GraphTestSuite             |  7763.33     |     4392.80     |       7969.95        |     18427.35         |   5631.75    |
-| GraphQueryTestSuite        |   938.26     |      419.23     |        338.75        |      1585.12         |    633.13    |
-| GraphMLReaderTestSuite     |  2193.59     |     2269.13     |       1435.05        |      3588.97         |   2771.08    |
-| IndexableGraphTestSuite    |  2526.43     |      472.26     |        438.25        |      3092.67         |     -        |
-| IndexTestSuite             |  1299.97     |     2528.38     |       1435.05        |      1109.06         |     -        |
-| KeyIndexableGraphTestSuite |  1566.96     |     1486.62     |        979.66        |      4930.77         |     -        |
-| TransactionGraphTestSuite  |  6050.46     |    15300.70(*4) |      22021.37(*4)    |     34268.88(*4)     |     -        |
+|                            |  2.5.0-SNAPSHOT(*2)   |  2.5.0-SNAPSHOT(*3) |     2.5.0-SNAPSHOT(*4)   |    2.5.0-SNAPSHOT(*5)    |   2.4.0(*6)  |
+| VertexTestSuite            |  8212.51     |     3662.94     |       4001.32        |      7233.31         |   5051.43    |
+| VertexQueryTestSuite       |  3808.78     |      804.28     |        762.79        |      1943.51         |   1482.64    |
+| EdgeTestSuite              |  9863.45     |     2282.13     |       2386.27        |      5482.16         |   4416.40    |
+| GraphTestSuite             | 11141.28     |    10893.83     |       8591.78        |     15962.46         |   5631.75    |
+| GraphQueryTestSuite        |  1456.90     |      336.30     |        357.44        |      1585.12         |    633.13    |
+| GraphMLReaderTestSuite     |  3096.25     |     1526.83     |       1581.42        |      3710.91         |   2771.08    |
+| IndexableGraphTestSuite    |  5669.64     |     1307.18     |       1176.68        |      3099.10         |     -        |
+| IndexTestSuite             |  2255.25     |      541.50     |        526.15        |      1345.00         |     -        |
+| KeyIndexableGraphTestSuite |  3027.29     |     1780.79     |       2209.91        |      5404.79         |     -        |
+| TransactionGraphTestSuite  | 17533.41     |    14936.44     |      22549.49        |     36736.34         |     -        |
 (msec)
 
      *1: ObjectDB 2.5.4
      *2: mvn test -Dtest=OrientGraphLightweightEdgesTest
-     *3: mvn test -Dtest=DexGraphTest
-     *4: JpaGraph.getVertices()/getEdges() are slightly slow.
+     *3: mvn -f pom-objectdb.xml test -Dtest=JpaGraphTest
+     *4: mvn -f pom-eclipselink.xml test -Dtest=JpaGraphTest
+     *5: mvn -f pom-hibernate.xml test -Dtest=JpaGraphTest
+     *6: mvn test -Dtest=DexGraphTest
+
 
 Testing and Installing
 ======================

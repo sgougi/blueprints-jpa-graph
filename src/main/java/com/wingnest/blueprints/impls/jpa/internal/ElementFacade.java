@@ -93,10 +93,28 @@ final public class ElementFacade {
 					jpaGraph.getDamper().persist(jpaGraph, property);
 					bpJpaElement.putProperty(property);
 				} else {
-					bpJpaElement.putProperty(property);				
-				}
+					Long bfPVer = property.getVersion();
+					Long bfEVer = bpJpaElement.getVersion();
+					//System.out.println("1:" + bfEVer + ", " + bfPVer + ", " +  bpJpaElement.getKeys().size() );
+					bpJpaElement.putProperty(property);
+					Long atPVer = property.getVersion();
+					Long atEVer = bpJpaElement.getVersion();
+					//System.out.println("2:" + atPVer  + ", " + atEVer + ", " +  bpJpaElement.getKeys().size() );
+					if ( bfPVer == null && atPVer == null && bfEVer == atEVer)
+						jpaGraph.getRawGraph().flush();
+				}				
 			} else {
-				bpJpaElement.putProperty(property);			
+				if (true) {
+					bpJpaElement.putProperty(property);
+				} else {
+					Long bfPVer = property.getVersion();
+					Long bfEVer = bpJpaElement.getVersion();
+					bpJpaElement.putProperty(property);
+					Long atPVer = property.getVersion();
+					Long atEVer = bpJpaElement.getVersion();
+					if( bfPVer == null && atPVer == null && bfEVer == atEVer)
+						jpaGraph.getRawGraph().flush();
+				}	
 			}
 			jpaGraph.getBpJpaKeyIndexManager().createKeyIndexedPropertyIfNeeds(property);
 		} else {

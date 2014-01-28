@@ -36,7 +36,7 @@ import com.wingnest.blueprints.impls.jpa.internal.models.ElementType;
 
 /* persistence annotations here are just for ObjectDB */
 @Entity
-@Index(members={"propertyId","indexValue","keyName","elementType"})
+@Index(members={"indexValue","keyName","elementType"})
 public class BpJpaKeyIndexedProperty extends BpJpaIndexBase {
 	
 	private static Logger logger = LoggerFactory.getLogger(BpJpaKeyIndexedProperty.class);
@@ -63,9 +63,9 @@ public class BpJpaKeyIndexedProperty extends BpJpaIndexBase {
 		if (property == null) throw BpJpaExceptionFactory.cannotBeNull("property");
 		if (property.getValue() == null ) throw BpJpaExceptionFactory.cannotBeNull("property.getValue()");
 		setPropertyIdAndElementId(property);
-		setIndexValue(property.getValue());
 		setElementType(property.getElement().getElementType());
 		setKeyName(property.getKey());
+		setIndexValue(property.getValue());
 	}
 
 	private void setKeyName(String key) {

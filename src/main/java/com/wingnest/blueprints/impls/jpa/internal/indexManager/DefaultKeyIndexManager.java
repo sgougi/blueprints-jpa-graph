@@ -15,7 +15,9 @@
  */
 package com.wingnest.blueprints.impls.jpa.internal.indexManager;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.persistence.EntityManager;
@@ -234,8 +236,17 @@ public class DefaultKeyIndexManager implements BpJpaKeyIndexManager {
 
 	private <T extends Element> BpJpaKeyIndex getKeyIndex_(String key, ElementType elementType) {
 		if(!tlCache.get().hasKeyIndex(key, elementType)) return null;
+		BpJpaKeyIndex index = null;
+		if (jpaGraph.getDamper().isObjectDB()) {
+			index = tlCache.get().getKeyIndex(key, elementType);
+			if (index != null) {
+				return index;
+			}
+		}
 		jpaGraph.getDamper().beforeFetch(jpaGraph);
-		BpJpaKeyIndex index = BpJpaKeyIndex.getKeyIndex(getEntityManager(), key, elementType);
+		index = BpJpaKeyIndex.getKeyIndex(getEntityManager(), key, elementType);
+		if (jpaGraph.getDamper().isObjectDB()) 
+			tlCache.get().pushKeyIndex(key, elementType, index);
 		return index;
 	}
 
@@ -258,10 +269,15 @@ public class DefaultKeyIndexManager implements BpJpaKeyIndexManager {
 
 	private class Cache {
 		private Set<String> vertexIndexedKeys;
+		private Map<String, BpJpaKeyIndex> vertexKeyIndexes = new HashMap<String, BpJpaKeyIndex>();
 		private Set<String> edgeIndexedKeys;
+		private Map<String, BpJpaKeyIndex> edgeKeyIndexes = new HashMap<String, BpJpaKeyIndex>();;
+		
 		public void initialize() {
 			vertexIndexedKeys = getIndexedKeys_(Vertex.class); 
 			edgeIndexedKeys = getIndexedKeys_(Edge.class); 
+			vertexKeyIndexes.clear();
+			edgeKeyIndexes.clear();
 		}
 		public <T extends Element> Set<String> getIndexedKeys(Class<T> elementClass) {
 			if ( Vertex.class.isAssignableFrom(elementClass) ) {
@@ -281,5 +297,23 @@ public class DefaultKeyIndexManager implements BpJpaKeyIndexManager {
 				throw BpJpaExceptionFactory.bug(elementType.toString());
 			}			
 		}
+		public void pushKeyIndex(String key, ElementType elementType, BpJpaKeyIndex index) {
+			if ( ElementType.VERTEX.equals(elementType) ) {
+				vertexKeyIndexes.put(key, index);
+			} else if ( ElementType.EDGE.equals(elementType) ) {
+				edgeKeyIndexes.put(key, index);				
+			} else {
+				throw BpJpaExceptionFactory.bug(elementType.toString());
+			}			
+		}
+		public BpJpaKeyIndex getKeyIndex(String key, ElementType elementType) {
+			if ( ElementType.VERTEX.equals(elementType) ) {
+				return vertexKeyIndexes.get(key);
+			} else if ( ElementType.EDGE.equals(elementType) ) {
+				return edgeKeyIndexes.get(key);				
+			} else {
+				throw BpJpaExceptionFactory.bug(elementType.toString());
+			}			
+		}		
 	}	
 }

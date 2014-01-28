@@ -138,7 +138,7 @@ public class JpaGraphTest extends GraphTest {
 	            		long start = new Date().getTime();
 	            		method.invoke(testSuite);
 	            		long end = new Date().getTime();
-	            		if(bDetailTestReport) System.out.println(String.format("time : %d", end - start));
+	            		if(bDetailTestReport) System.out.println(String.format("time : %d : %s", end - start, method.getName()));
 	    	   			clearDB();
 	            	}
 	            }

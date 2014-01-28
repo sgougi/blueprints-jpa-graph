@@ -1,6 +1,7 @@
 package com.wingnest.blueprints.impls.jpa.performance;
 
 import java.io.File;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -21,8 +22,8 @@ import com.wingnest.blueprints.impls.jpa.performance.models.SimpleVertex;
 public class PerformanceTest  extends TestCase
 {
     public void testCreatingVertices()  {
-    	//int[] nums = { 1, 1, 10, 100, 1000, 10000, 100000 };
-    	int[] nums = { 1, 1, 10, 100, 1000};
+    	int[] nums = { 1, 1, 10, 100, 1000, 10000, 100000 };
+    	//int[] nums = { 1, 1, 10, 100, 1000};
     	for (int num : nums) {
     		createVertices(num);
     	}
@@ -33,14 +34,14 @@ public class PerformanceTest  extends TestCase
         	stopWatch();
         	for (int i = 0; i < num; i++) {
         		SimpleVertex sv = graph.addVertex(null, SimpleVertex.class);
-        		sv.setStrAttr("simpleVertex" + i);
+        		sv.setStrAttr("simpleVertex" + i);  
         	}        	
         	graph.commit();
         	printTestPerformance(String.format("[testCreatingVertices] %d vertices were created : ", num), stopWatch());
         	if (num < 1000) {
         		assertEquals(num, count(graph.getVertices())); //verify
         		graph.commit();
-    		}        	
+	   		}        	
     	} catch (Exception e) {
     		graph.rollback();    		
     		fail();
@@ -50,8 +51,8 @@ public class PerformanceTest  extends TestCase
     }
     ////////////////////////////////////////////////////////////////////////////////////////////        
     public void testRemovingVertices()  {
-    	//int[] nums = { 1, 1, 10, 100, 1000, 10000, 100000 };
-    	int[] nums = { 1, 1, 10, 100, 1000};
+    	int[] nums = { 1, 1, 10, 100, 1000, 10000, 100000 };
+    	//int[] nums = { 1, 1, 10, 100, 1000};
     	for (int num : nums) {
     		removeVertices(num);
     	}
@@ -85,8 +86,8 @@ public class PerformanceTest  extends TestCase
     }
     ////////////////////////////////////////////////////////////////////////////////////////////
     public void testCreatingEdges() {
-    	//int[] nums = { 1, 1, 10, 100, 1000, 10000, 100000 };
-    	int[] nums = { 1, 1, 10, 100, 1000};
+    	int[] nums = { 1, 1, 10, 100, 1000, 10000, 100000 };
+    	//int[] nums = { 1, 1, 10, 100, 1000};
     	for (int num : nums) {
     		createEdges(num);
     	}
@@ -119,8 +120,8 @@ public class PerformanceTest  extends TestCase
     }
     ////////////////////////////////////////////////////////////////////////////////////////////
     public void testRemovingEdges()  {
-    	//int[] nums = { 1, 1, 10, 100, 1000, 10000, 100000 };
-    	int[] nums = { 1, 1, 10, 100, 1000};
+    	int[] nums = { 1, 1, 10, 100, 1000, 10000, 100000 };
+    	//int[] nums = { 1, 1, 10, 100, 1000};
 
     	for (int num : nums) {
     		removeEdges(num);
@@ -167,8 +168,8 @@ public class PerformanceTest  extends TestCase
     }
     ////////////////////////////////////////////////////////////////////////////////////////////
     public void testCreateTriples() {
-    	//int[] nums = { 1, 1, 10, 100, 1000, 10000, 100000 };
-    	int[] nums = { 1, 1, 10, 100, 1000};
+    	int[] nums = { 1, 1, 10, 100, 1000, 10000, 100000 };
+    	//int[] nums = { 1, 1, 10, 100, 1000};
     	for (int num : nums) {
     		createTriples(num);
     	}
@@ -200,28 +201,28 @@ public class PerformanceTest  extends TestCase
     	} 
     }
     ////////////////////////////////////////////////////////////////////////////////////////////
-    public void testFindingVertexByUsingIndex() {
-    	//int[] nums = { 1, 1, 10, 100, 1000, 10000, 100000 };
-    	int[] nums = { 1, 1, 10, 100, 1000};
+    public void testFindingVertexByUsingKeyIndex() {
+    	int[] nums = { 1, 1, 10, 100, 1000, 10000, 100000 };
+    	//int[] nums = { 1, 1, 10, 100, 1000};
     	for (int num : nums) {
-    		findByUsingIndex(num);
+    		findByUsingKeyIndex(num);
     	}
     }
-    private void findByUsingIndex(int num) {
+    private void findByUsingKeyIndex(int num) {
     	FramedTransactionalGraph<TransactionalGraph> graph = createFramedGraph();
 
     	try {
         	((KeyIndexableGraph)graph.getBaseGraph()).createKeyIndex("strAttr", Vertex.class);
         	graph.commit();
-
+        	stopWatch();
         	for (int i = 0; i < num; i++) {
         		SimpleVertex sv = graph.addVertex(null, SimpleVertex.class);
         		sv.setStrAttr("simpleVertex" + i);
-        		if((i % 500) == 0)
-        			graph.commit();        	        	
+        		
         	}
         	graph.commit();
-        	
+        	printTestPerformance(String.format("[testFindingVertexByUsingIndex] %d vertices were created : ", num), stopWatch());
+
         	stopWatch();
         	for (int i = 0; i < num; i++) {
         		Iterable<Vertex> itr = ((KeyIndexableGraph)graph.getBaseGraph()).getVertices("strAttr", "simpleVertex" + i);
@@ -231,10 +232,12 @@ public class PerformanceTest  extends TestCase
         	}
         	graph.commit();
         	printTestPerformance(String.format("[testFindingVertexByUsingIndex] %d vertices were found : ", num), stopWatch());
+
 			if ( num < 1000 ) {
         		assertEquals(num, count(graph.getVertices())); //verify
         		graph.commit();
-			}        	
+			}
+
     	} catch (Exception e) {
     		graph.rollback();    		
     		fail();
