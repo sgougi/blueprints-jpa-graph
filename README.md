@@ -34,7 +34,7 @@ Micro benchmark only as a guide
 ===============================
 
 
-|                            |   [OrientDB](http://www.orientechnologies.com/orientdb/)   | JPA:ObjectDB(*1)| JPA:EclipseLink+Derby|  JPA:Hibernate+Derby |   DEX        |
+|                            |   [OrientDB](http://www.orientechnologies.com/orientdb/)   | JPA:ObjectDB(*1)| JPA:EclipseLink+Derby|  JPA:Hibernate+Derby |   [DEX](http://www.sparsity-technologies.com/dex)        |
 |:---------------------------|--------------|-----------------|----------------------|----------------------|-------------:|
 |                            |  2.4.0(*2)   |  2.5.0-SNAPSHOT |     2.5.0-SNAPSHOT   |    2.5.0-SNAPSHOT    |   2.4.0(*3)  |
 | VertexTestSuite            |  5731.31     |     3184.87     |       3650.64        |      7594.04         |   5051.43    |
