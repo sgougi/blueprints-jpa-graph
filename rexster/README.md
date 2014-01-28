@@ -5,7 +5,7 @@ Hello, Rexster!!
 
       % cd ..
       % mvn install -DskipTests=true
-      % cd gremlin
+      % cd rexster
 
 1) Build
 
