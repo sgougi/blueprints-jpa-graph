@@ -15,27 +15,32 @@
  */
 package com.wingnest.rexster.config;
 
+import java.util.Iterator;
+import java.util.Properties;
+
 import org.apache.commons.configuration.Configuration;
-import org.apache.commons.configuration.HierarchicalConfiguration;
 
 import com.tinkerpop.blueprints.Graph;
-import com.tinkerpop.rexster.Tokens;
 import com.tinkerpop.rexster.config.GraphConfiguration;
 import com.tinkerpop.rexster.config.GraphConfigurationException;
 import com.wingnest.blueprints.impls.jpa.JpaGraph;
 
 public class JpaGraphConfiguration implements GraphConfiguration {
 
+	private static final String TOKEN_PROPERTIES = "properties";
 	private static final String TOKEN_JPA_GRAPH_UNIT_NAME = "jpagraph-unit-name";
 
 	@Override
 	public Graph configureGraphInstance(Configuration properties) throws GraphConfigurationException {
 		String unitName  = properties.getString(TOKEN_JPA_GRAPH_UNIT_NAME);
-		if ( unitName == null || unitName.length() == 0 ) {
-			throw new GraphConfigurationException("Check graph configuration. Missing or empty configuration element: " + TOKEN_JPA_GRAPH_UNIT_NAME);
+		Iterator<String> it = properties.getKeys(TOKEN_PROPERTIES);
+		Properties props = new Properties();
+		while (it.hasNext()) {
+			String key = it.next();
+			String newkey = key.substring(TOKEN_PROPERTIES.length() + 1).replaceAll("\\.\\.", ".");
+			props.put(newkey, properties.getString(key));
 		}
-		final HierarchicalConfiguration graphSectionConfig = (HierarchicalConfiguration) properties;
-		return new JpaGraph(unitName, graphSectionConfig.getProperties(Tokens.REXSTER_GRAPH_PROPERTIES)); 
+		return new JpaGraph(unitName, props); 
 	}
 
 }

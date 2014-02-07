@@ -7,6 +7,7 @@
     <info organisation="org.apache" module="configurations" ></info>
     
     <configurations>
+    	<conf name="Ext"/>
     	<conf name="common"/>
     	<conf name="ObjectDB" extends="common"/>
     	<conf name="EclipseLink" extends="common"/>
@@ -17,6 +18,9 @@
         <dependency org="com.wingnest.blueprints" name="blueprints-jpa-graph" rev="${tinkerpop.version}" changing="true" conf="common->default"/>
 
         <dependency org="com.tinkerpop.blueprints" name="blueprints-core" rev="${tinkerpop.version}" conf="common->default"/>        
+        <dependency org="com.tinkerpop.blueprints" name="blueprints-sail-graph" rev="${tinkerpop.version}" conf="common->default"/>
+        <dependency org="com.tinkerpop.blueprints" name="blueprints-graph-sail" rev="${tinkerpop.version}" conf="common->default"/>        
+	        
         <dependency org="com.tinkerpop" name="pipes" rev="${tinkerpop.version}" conf="common->default"/>
 		<dependency org="com.tinkerpop.rexster" name="rexster-server" rev="${tinkerpop.version}" conf="common->default"/>
                                 
@@ -34,6 +38,9 @@
         
         <dependency org="javax.jdo" name="jdo2-api" rev="2.3-eb" conf="common->default"/>
 
+		<dependency org="commons-logging" name="commons-logging" rev="1.1.3" conf="common->default"/>
+
+            
 		<!-- ========== ObjectDB ============  -->
         <dependency org="com.objectdb" name="objectdb" rev="2.5.4" conf="ObjectDB->default"/>
         
@@ -48,6 +55,9 @@
         <dependency org="org.apache.derby" name="derbytools" rev="10.10.1.1" conf="Hibernate->default"/>
         <dependency org="org.hibernate" name="hibernate-entitymanager" rev="4.3.0.Final" conf="Hibernate->default"/>
 
+		<!--=========== Ext ============  -->
+		<dependency org="com.tinkerpop.rexster.rexster-kibbles" name="sparql-kibble" rev="${tinkerpop.version}" conf="Ext->default"/>        
+
 		<!--=========== Exclude ============  -->        
         <exclude org="org.tinkerpop.blueprints" artifact="blueprints-dex-graph" />
         <exclude org="org.tinkerpop.blueprints" artifact="blueprints-graph-jung" />
@@ -56,8 +66,17 @@
         <exclude org="org.tinkerpop.blueprints" artifact="blueprints-neo4j-graph" />
         <exclude org="org.tinkerpop.blueprints" artifact="blueprints-orient-graph" />
         <exclude org="org.tinkerpop.blueprints" artifact="blueprints-rexstert-graph" />
-        <exclude org="org.tinkerpop.blueprints" artifact="blueprints-sail-graph" />
-              
+<!--
+        <exclude org="commons-logging"/> 
+  -->        
+        <exclude org="commons-collections" conf="Ext"/>
+        <exclude org="commons-configuration" conf="Ext"/>
+        <exclude org="commons-digester" conf="Ext"/>
+        <exclude org="commons-beanutils" conf="Ext"/>
+        <exclude org="commons-lang" conf="Ext"/>
+        <exclude org="com.tinkerpop.blueprints" conf="Ext"/>
+        <exclude org="com.tinkerpop" conf="Ext"/>
+
     </dependencies>
    
 </ivy-module>

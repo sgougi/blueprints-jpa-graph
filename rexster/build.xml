@@ -1,8 +1,10 @@
 <project name="rexster" default="run" xmlns:ivy="antlib:org.apache.ivy.ant">
 	<property name="ivy.install.version" value="2.3.0" />
 	<property name="ivy.jar.dir" value="${basedir}/ivy" />
+	<property name="ext.dir" value="${basedir}/ext" />
 	<property name="ivy.jar.file" value="${ivy.jar.dir}/ivy.jar" />
 	<property name="tinkerpop.version" value="2.5.0-SNAPSHOT" />
+	<property name="sparql-kibble.jar" value="${ext.dir}/sparql-kibble-${tinkerpop.version}.jar" />
 	
     <!-- some variables used -->
     <property name="lib.dir" value="lib" />
@@ -41,7 +43,7 @@
     	<get src="http://repo1.maven.org/maven2/org/apache/ivy/ivy/${ivy.install.version}/ivy-${ivy.install.version}.jar"
     		 dest="${ivy.jar.file}" usetimestamp="true"/>
     </target>
-        
+            
     <!-- ================================= 
           target: install-ivy
          ================================= -->        
@@ -57,27 +59,34 @@
           target: init-ivy
          ================================= -->            
     <target name="init-ivy" depends="install-ivy">
-		<ivy:settings id="basic.settings"    file="settings.xml"/>
+		<ivy:settings id="basic.settings" file="settings.xml"/>
     </target>
                 
     <!-- ================================= 
           target: resolve              
          ================================= -->
     <target name="resolve" description="--> retreive dependencies with ivy">
-        <ivy:retrieve transitive="true" settingsRef="basic.settings"  pattern="${ivy.lib.dir}/[conf]/[artifact]-[revision].[ext]" />
-    </target>    
+        <ivy:retrieve transitive="true" settingsRef="basic.settings"  pattern="${ivy.lib.dir}/[conf]/[artifact]-[revision].[ext]" conf="ObjectDB,EclipseLink,Hibernate"/>
+    </target>
+    
+    <!-- ================================= 
+          target: ext              
+         ================================= -->
+    <target name="ext" description="--> retreive ext with ivy">
+        <ivy:retrieve transitive="true" settingsRef="basic.settings"  pattern="${ext.dir}/[artifact]-[revision].[ext]" conf="Ext"/>
+    </target>        
     
     <!-- ================================= 
           target: report              
          ================================= -->
-    <target name="report" depends="init-ivy, resolve" description="--> generates a report of dependencies">
+    <target name="report" depends="init-ivy, resolve, ext" description="--> generates a report of dependencies">
         <ivy:report settingsRef="basic.settings" todir="${build.dir}"/>
     </target>
 
     <!-- ================================= 
           target: run
          ================================= -->
-    <target name="run" depends="init-ivy, resolve" description="--> compile and run the project">
+    <target name="run" depends="init-ivy, resolve, ext" description="--> compile and run the project">
     </target>
 
     <!-- ================================= 
@@ -87,6 +96,8 @@
         <delete includeemptydirs="true">
             <fileset dir="${basedir}">
             	<exclude name="src/**" />
+            	<exclude name="sampledata/**" />
+            	<exclude name="ext/**" />
             	<exclude name="public/**" />
             	<exclude name="config/**" />
             	<exclude name="build.xml" />

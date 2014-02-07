@@ -124,6 +124,10 @@ public class JpaGraph implements
 		this(new EntityManagerFactoryWrapper(persistanceUnitName, propertiesForEntityManager));
 	}
 	
+	public JpaGraph(@SuppressWarnings("rawtypes") Map propertiesForEntityManager) {
+		this(new EntityManagerFactoryWrapper(null, propertiesForEntityManager));
+	}	
+	
 	public JpaGraph(EntityManagerFactory entityManagerFactory, @SuppressWarnings("rawtypes") Map propertiesForEntityManager) {
 		this(new EntityManagerFactoryWrapper(entityManagerFactory));
 	}
@@ -290,11 +294,13 @@ public class JpaGraph implements
 	// IndexableGraph
 	
 	public <T extends Element> Index<T> createIndex(String indexName, Class<T> indexClass, @SuppressWarnings("rawtypes") Parameter... indexParameters) {
+		logger.debug("create Index:" + indexName);
 		autoStartTransaction();
 		return indexManager.createIndex(indexName, indexClass, indexParameters);
 	}
 
 	public <T extends Element> Index<T> getIndex(String indexName,	Class<T> indexClass) {
+		logger.debug("get Index:" + indexName);
 		autoStartTransaction();		
 		return indexManager.getIndex(indexName, indexClass);
 	}
@@ -317,6 +323,7 @@ public class JpaGraph implements
 	}
 
 	public <T extends Element> void createKeyIndex(String key, Class<T> elementClass, @SuppressWarnings("rawtypes") Parameter... indexParameters) {
+		logger.debug("create KeyIndex:" + key);
 		autoStartTransaction();
 		keyIndexManager.createKeyIndex(key, elementClass, indexParameters);
 	}
@@ -369,8 +376,8 @@ public class JpaGraph implements
 		}
 		
 		public void beginTransaction() {
-			entityManagerFactoryWrapper.getDamper().flat();
-			tx().begin();			
+			getDamper().flat();
+			tx().begin();
 			for (BeginTransactionHook hook : beginTransactionHooks) {
 				hook.beginTransaction();
 			}		
@@ -390,7 +397,6 @@ public class JpaGraph implements
 								else
 									et.commit();
 							}
-							em.close();
 						}				
 					} catch ( Exception e ) {
 						logger.error(String.format("shutdown EntitityManager : %s", em.toString()), e);

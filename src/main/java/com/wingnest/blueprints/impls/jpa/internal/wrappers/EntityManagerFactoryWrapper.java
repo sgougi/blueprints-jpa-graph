@@ -15,14 +15,15 @@
  */
 package com.wingnest.blueprints.impls.jpa.internal.wrappers;
 
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Properties;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import org.apache.commons.configuration.Configuration;
-import org.apache.commons.configuration.HierarchicalConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,6 +32,8 @@ import com.wingnest.blueprints.impls.jpa.internal.dampers.Damper;
 import com.wingnest.blueprints.impls.jpa.internal.dampers.DamperFactory;
 
 final public class EntityManagerFactoryWrapper {
+
+	private static final String BLUEPRINTS_JPAGRAPH_PERSISTENCE_UNIT_PROPERTIES = "blueprints.jpagraph.persistence-unit-properties";
 
 	private static Logger logger = LoggerFactory.getLogger(EntityManagerFactoryWrapper.class);
 		
@@ -58,14 +61,32 @@ final public class EntityManagerFactoryWrapper {
 		this.damper = DamperFactory.create(this.entityManagerFactory);
 	}
 
-	public EntityManagerFactoryWrapper(String persistanceUnitName, @SuppressWarnings("rawtypes") Map props) {
-		String pPersistanceUnitName = persistanceUnitName != null ? persistanceUnitName : System.getProperty("jpagraph.unit-name", "DefaultUnit");
+	public EntityManagerFactoryWrapper(String persistanceUnitName, @SuppressWarnings("rawtypes") Map props)  {
+		super();
+		String pPersistanceUnitName = persistanceUnitName != null ? persistanceUnitName : System.getProperty("jpagraph.unit-name");
+		if (pPersistanceUnitName == null) {
+			ClassLoader cl = this.getClass().getClassLoader();
+			try {
+				cl.loadClass("com.objectdb.jpa.EMF");
+				pPersistanceUnitName = "ObjectDbUnit";
+			} catch (ClassNotFoundException e){}
+			try {
+				cl.loadClass("org.eclipse.persistence.internal.jpa.EntityManagerFactoryImpl");
+				pPersistanceUnitName = "EclipseLinkUnit";
+			} catch ( ClassNotFoundException e ) {}
+			try {
+				cl.loadClass("org.hibernate.jpa.internal.EntityManagerFactoryImpl");
+				pPersistanceUnitName = "HibernateUnit";
+			} catch ( ClassNotFoundException e ) {}
+		}
+
 		if (pPersistanceUnitName == null) throw BpJpaExceptionFactory.cannotBeNull("pPersistanceUnitName");
 		if (pPersistanceUnitName.length() == 0) throw BpJpaExceptionFactory.cannotBeEmpty("pPersistanceUnitName");
-		
+
 		logger.debug(String.format("persistanceUnitName = %s", pPersistanceUnitName));
 		try {
 			this.entityManagerFactory = Persistence.createEntityManagerFactory(pPersistanceUnitName, props);
+			logger.debug("EntityManagerFactory class : " + entityManagerFactory.getClass().getName());
 			this.damper = DamperFactory.create(this.entityManagerFactory);
 		} catch (RuntimeException e) {
 			logger.error(String.format("Called Persistence.createEntityManagerFactory: persistanceUnitName = '%s'", pPersistanceUnitName), e);
@@ -73,7 +94,7 @@ final public class EntityManagerFactoryWrapper {
 		}
 	}
 	
-	public EntityManagerFactoryWrapper(Configuration configuration) {
+	public EntityManagerFactoryWrapper(Configuration configuration) {	
 		this(getUnitName(configuration), getProperties(configuration));	
 	}
 	
@@ -83,7 +104,14 @@ final public class EntityManagerFactoryWrapper {
 	
 	@SuppressWarnings("rawtypes")
 	private static Map getProperties(Configuration configuration) {
-		return ((HierarchicalConfiguration)configuration).getProperties("blueprints.jpagraph.persistence-unit-properties");
+		Iterator<String> it = configuration.getKeys(BLUEPRINTS_JPAGRAPH_PERSISTENCE_UNIT_PROPERTIES);
+		Properties props = new Properties();
+		while (it.hasNext()) {
+			String key = it.next();
+			String newkey = key.substring(BLUEPRINTS_JPAGRAPH_PERSISTENCE_UNIT_PROPERTIES.length() + 1).replaceAll("\\.\\.", ".");
+			props.put(newkey, configuration.getString(key));
+		}		
+		return props;
 	}	
 
 	public EntityManager createEntityManager(@SuppressWarnings("rawtypes") Map props) {

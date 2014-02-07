@@ -87,12 +87,14 @@
         </reporter>
     </metrics>
     <graphs>
-    
+	
         <!-- JpaGraph with Eclipse -->
         <graph>
             <graph-name>jpagraph</graph-name>
             <graph-type>com.wingnest.rexster.config.JpaGraphConfiguration</graph-type>
+<!--            
             <jpagraph-unit-name>EclipseLinkUnit</jpagraph-unit-name>
+-->            
 <!--            
             <properties>
 				<javax.persistence.jdbc.driver>org.apache.derby.jdbc.EmbeddedDriver</javax.persistence.jdbc.driver>
@@ -102,10 +104,30 @@
             </properties>
 -->            				
             <extensions>
+            
                 <allows>
                     <allow>tp:gremlin</allow>
                 </allows>
             </extensions>
         </graph>
+        
+        <!-- JpaSailGraph with Eclipse -->
+    	<graph>
+		    <graph-name>jpasailgraph</graph-name>
+	    	<graph-type>com.wingnest.rexster.config.JpaSailGraphConfiguration</graph-type>
+<!--                        	    	
+            <jpagraph-unit-name>EclipseLinkUnit</jpagraph-unit-name>
+-->            
+            <properties>
+				<javax.persistence.jdbc.url>jdbc:derby:db/EclipseLinkUnitSail;create=true</javax.persistence.jdbc.url>
+			</properties>
+	    	<extensions>
+		    	<allows>
+		        	<allow>tp:gremlin</allow>
+		        	<allow>tp:sparql</allow>
+		      	</allows>
+		    </extensions>
+		</graph>        
     </graphs>
+    
 </rexster>

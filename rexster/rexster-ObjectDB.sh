@@ -1,11 +1,19 @@
 #!/bin/bash
 
 case `uname` in
-  CYGWIN*)
+  MINGW*|CYGWIN*)    
     CP=$( echo `dirname $0`/lib/ObjectDB/*.jar . | sed 's/ /;/g')
     ;;
   *)
-    CP=$( echo `dirname $0`/lib/ObjectDB/*.jar . | sed 's/ /;/g')
+    CP=$( echo `dirname $0`/lib/ObjectDB/*.jar . | sed 's/ /:/g')
+esac
+
+case `uname` in
+  MINGW*|CYGWIN*)    
+    CP=$CP;$(echo `dirname $0`/ext/*.jar . | sed 's/ /;/g')
+    ;;
+  *)
+    CP=$CP:$(echo `dirname $0`/ext/*.jar . | sed 's/ /:/g')
 esac
 
 PUBLIC=public/

@@ -1,11 +1,11 @@
 #!/bin/bash
 
 case `uname` in
-  CYGWIN*)
+  MINGW*|CYGWIN*)  
     CP=$( echo `dirname $0`/lib/Hibernate/*.jar . | sed 's/ /;/g')
     ;;
   *)
-    CP=$( echo `dirname $0`/lib/Hibernate/*.jar . | sed 's/ /;/g')
+    CP=$( echo `dirname $0`/lib/Hibernate/*.jar . | sed 's/ /:/g')
 esac
 
 # Find Java
@@ -17,7 +17,7 @@ fi
 
 # Set Java options
 if [ "$JAVA_OPTIONS" = "" ] ; then
-    JAVA_OPTIONS="-Xms32m -Xmx512m -Djpagraph.unit-name=HibernateUnit"
+    JAVA_OPTIONS="-Xms32m -Xmx512m"
 fi
 
 # Launch the application

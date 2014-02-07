@@ -20,8 +20,8 @@ Support Features
 
 Support JPAs
 ==================
-* [ObjectDB](http://www.objectdb.com/)
-* [EclipseLink](http://www.eclipse.org/eclipselink/) 
+* [EclipseLink](http://www.eclipse.org/eclipselink/)  (At this point, I recommend EclipseLink)
+* [ObjectDB](http://www.objectdb.com/) (Somewhat buggy)
 * [Hibernate](http://hibernate.org/)
 
 Weak points
@@ -80,6 +80,10 @@ These will probably be good references for that you integrate into your system w
 #### Running [Rexster](https://github.com/tinkerpop/rexster/wiki) with JpaGraph
 
 * see [rexster/README.md](rexster/README.md)
+
+#### Using [SPARQL](http://en.wikipedia.org/wiki/SPARQL)+[Rexster](https://github.com/tinkerpop/rexster/wiki) with JpaGraph
+
+* see [rexster/README-SPARQL.md](rexster/README-SPARQL.md)
 
 Integration
 ===========

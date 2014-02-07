@@ -199,7 +199,7 @@ public class JpaGraphTest extends GraphTest {
 		}
 		final File dbDir = testDir(null);
 		if(!dbDir.exists()) dbDir.mkdirs();
-		return new JpaGraph(UNIT_NAME, props);
+		return new JpaGraph(props);
 	}
    
 	@Override

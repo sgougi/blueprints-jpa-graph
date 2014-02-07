@@ -5,12 +5,12 @@
                    "http://ant.apache.org/ivy/schemas/ivy.xsd">
                    
     <info organisation="org.apache" module="configurations" ></info>
-    
+
     <configurations>
     	<conf name="common"/>
-    	<conf name="ObjectDB" extends="common"/>
+    	<conf name="ObjectDB"    extends="common"/>
     	<conf name="EclipseLink" extends="common"/>
-    	<conf name="Hibernate" extends="common"/>    	
+    	<conf name="Hibernate"   extends="common"/>    	
     </configurations>
     
     <dependencies>
@@ -30,6 +30,8 @@
         <dependency org="org.slf4j" name="slf4j-simple" rev="1.6.1" conf="common->default"/>
         
         <dependency org="javax.jdo" name="jdo2-api" rev="2.3-eb" conf="common->default"/>
+
+		<dependency org="commons-configuration" name="commons-configuration" rev="1.6" conf="common->default"/>
 
 		<!-- ========== ObjectDB ============  -->
         <dependency org="com.objectdb" name="objectdb" rev="2.5.4" conf="ObjectDB->default"/>

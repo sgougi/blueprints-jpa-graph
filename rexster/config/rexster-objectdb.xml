@@ -89,22 +89,48 @@
     
     <!-- JpaGraph with ObjectDB -->
     <graphs>
+
         <graph>
             <graph-name>jpagraph</graph-name>
             <graph-type>com.wingnest.rexster.config.JpaGraphConfiguration</graph-type>
+<!--                                    
             <jpagraph-unit-name>ObjectDbUnit</jpagraph-unit-name>
-<!--            
+-->
             <properties>
-				<javax.persistence.jdbc.url>objectdb:db/ObjectDbUnit/test.odb</javax.persistence.jdbc.url>
+				<javax.persistence.jdbc.url>objectdb:db/ObjectDbUnit/jpagraph.odb</javax.persistence.jdbc.url>
+<!--    
 				<javax.persistence.jdbc.user>admin</javax.persistence.jdbc.user>
 				<javax.persistence.jdbc.password>admin</javax.persistence.jdbc.password>
+-->             				
             </properties>
--->             
+
             <extensions>
                 <allows>
                     <allow>tp:gremlin</allow>
                 </allows>
             </extensions>
         </graph>
+        
+        <!-- JpaSailGraph with ObjectDB -->
+    	<graph>
+		    <graph-name>jpasailgraph</graph-name>
+	    	<graph-type>com.wingnest.rexster.config.JpaSailGraphConfiguration</graph-type>
+<!--                        	    	
+            <jpagraph-unit-name>ObjectDbUnit</jpagraph-unit-name>
+-->            
+            <properties>
+	            <javax.persistence.jdbc.url>objectdb:db/ObjectDbUnitSail/jpasailgraph.odb</javax.persistence.jdbc.url>
+<!--            				
+				<javax.persistence.jdbc.user>admin</javax.persistence.jdbc.user>
+				<javax.persistence.jdbc.password>admin</javax.persistence.jdbc.password>
+-->	            
+			</properties>
+	    	<extensions>
+		    	<allows>
+		        	<allow>tp:gremlin</allow>
+		        	<allow>tp:sparql</allow>
+		      	</allows>
+		    </extensions>
+		</graph>        
     </graphs>
 </rexster>

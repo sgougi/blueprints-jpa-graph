@@ -64,7 +64,7 @@
           target: resolve              
          ================================= -->
     <target name="resolve" description="--> retreive dependencies with ivy">
-        <ivy:retrieve transitive="true" settingsRef="basic.settings"  pattern="${ivy.lib.dir}/[conf]/[artifact]-[revision].[ext]" />
+        <ivy:retrieve transitive="true" settingsRef="basic.settings"  pattern="${ivy.lib.dir}/[conf]/[artifact]-[revision].[ext]" conf="ObjectDB, EclipseLink, Hibernate"/>
     </target>    
     
     <!-- ================================= 
