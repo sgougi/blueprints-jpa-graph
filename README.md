@@ -98,7 +98,7 @@ Integration
 
 #### Integrating with Vert.x Tinkerpop Persistor Module and JpaGraph
 
-* see [wiki/Integrating-with-Vert.x-Tinkerpop-Persistor-Module-and-JpaGraph]
+* see [wiki/Integrating-with-Vert.x-Tinkerpop-Persistor-Module-and-JpaGraph](wiki/Integrating-with-Vert.x-Tinkerpop-Persistor-Module-and-JpaGraph)
 
 #### Using GraphFactory
 
