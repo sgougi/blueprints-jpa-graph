@@ -96,6 +96,9 @@ Integration
 
 * see [wiki/Sample-Maven-Dependencies](https://github.com/sgougi/blueprints-jpa-graph/wiki/Sample-Maven-Dependencies)
 
+#### Integrating with Vert.x Tinkerpop Persistor Module and JpaGraph
+
+* see [wiki/Integrating-with-Vert.x-Tinkerpop-Persistor-Module-and-JpaGraph]
 
 #### Using GraphFactory
 

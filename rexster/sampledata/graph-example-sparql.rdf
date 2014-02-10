@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+	xmlns:ctag="http://commontag.org/ns#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+<rdf:Description rdf:about="http://example.com/tag/1">
+	<ctag:label xml:lang="en">red</ctag:label>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://example.com/tag/8">
+	<ctag:label xml:lang="en">green</ctag:label>
+</rdf:Description>
+
+</rdf:RDF>

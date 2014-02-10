@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+	xmlns:ex="http://example.org/ns#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+
+<rdf:Description rdf:about="http://example.org/ns#Class1">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<rdfs:subClassOf rdf:resource="http://example.org/ns#Class2"/>
+</rdf:Description>
+
+<rdf:Description rdf:nodeID="node18fu6l081x1">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+	<owl:onProperty rdf:resource="http://example.org/ns#Ref"/>
+	<owl:someValuesFrom rdf:resource="http://example.org/ns#Class3"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://example.org/ns#Class1">
+	<rdfs:subClassOf rdf:nodeID="node18fu6l081x1"/>
+</rdf:Description>
+
+<rdf:Description rdf:nodeID="node18fu6l081x2">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+	<owl:onClass rdf:resource="http://example.org/ns#Class3"/>
+	<owl:onProperty rdf:resource="http://example.org/ns#Ref"/>
+	<owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://example.org/ns#Class1">
+	<rdfs:subClassOf rdf:nodeID="node18fu6l081x2"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://example.org/ns#Class2">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://example.org/ns#Class3">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://example.org/ns#Ref">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+</rdf:Description>
+
+</rdf:RDF>

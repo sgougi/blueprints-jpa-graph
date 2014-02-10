@@ -353,6 +353,7 @@ public class JpaGraph implements
 		}
 
 		public void clear() { /* for testing */
+			logger.debug("clear db");
 			EntityManager entityManager = createEntityManager();
 			EntityTransaction tx = entityManager.getTransaction();
 			tx.begin();		

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+	xmlns="urn:com.tinkerpop.blueprints.pgm.oupls.sail.test/"
+	xmlns:foaf="http://xmlns.com/foaf/0.1/"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+<rdf:Description rdf:about="urn:com.tinkerpop.blueprints.pgm.oupls.sail.test/arthur">
+	<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+	<foaf:knows rdf:resource="urn:com.tinkerpop.blueprints.pgm.oupls.sail.test/ford"/>
+	<foaf:knows rdf:resource="urn:com.tinkerpop.blueprints.pgm.oupls.sail.test/zaphod"/>
+	<foaf:knows rdf:resource="urn:com.tinkerpop.blueprints.pgm.oupls.sail.test/thor"/>
+	<rdfs:comment>he's a jerk</rdfs:comment>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:com.tinkerpop.blueprints.pgm.oupls.sail.test/ford">
+	<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+	<foaf:knows rdf:resource="urn:com.tinkerpop.blueprints.pgm.oupls.sail.test/arthur"/>
+	<foaf:knows rdf:resource="urn:com.tinkerpop.blueprints.pgm.oupls.sail.test/zaphod"/>
+	<rdfs:comment>he really knows where his towel is</rdfs:comment>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:com.tinkerpop.blueprints.pgm.oupls.sail.test/zaphod">
+	<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+	<foaf:knows rdf:resource="urn:com.tinkerpop.blueprints.pgm.oupls.sail.test/ford"/>
+	<rdfs:comment>so cool you could keep a side of meat in him for a month</rdfs:comment>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:com.tinkerpop.blueprints.pgm.oupls.sail.test/thor">
+	<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/God"/>
+	<foaf:name xml:lang="en">Thor</foaf:name>
+	<foaf:name xml:lang="is">?�r</foaf:name>
+	<foaf:msnChatID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Thorster123</foaf:msnChatID>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:com.tinkerpop.blueprints.pgm.oupls.sail.test/stringValue">
+	<hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">foo</hasValue>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:com.tinkerpop.blueprints.pgm.oupls.sail.test/byteValue">
+	<hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#byte">99</hasValue>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:com.tinkerpop.blueprints.pgm.oupls.sail.test/booleanValue">
+	<hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</hasValue>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:com.tinkerpop.blueprints.pgm.oupls.sail.test/intValue">
+	<hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">42</hasValue>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:com.tinkerpop.blueprints.pgm.oupls.sail.test/shortValue">
+	<hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#short">42</hasValue>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:com.tinkerpop.blueprints.pgm.oupls.sail.test/longValue">
+	<hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#long">42</hasValue>
+</rdf:Description>
+<!--     :decimalValue :hasValue "+100000.00"^^xsd:decimal. -->
+
+<rdf:Description rdf:about="urn:com.tinkerpop.blueprints.pgm.oupls.sail.test/floatValue">
+	<hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3.1415926</hasValue>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:com.tinkerpop.blueprints.pgm.oupls.sail.test/doubleValue">
+	<hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.1415926</hasValue>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:com.tinkerpop.blueprints.pgm.oupls.sail.test/dateTimeValue">
+	<hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2002-10-10T12:00:00-05:00</hasValue>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:com.tinkerpop.blueprints.pgm.oupls.sail.test/classA">
+	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:com.tinkerpop.blueprints.pgm.oupls.sail.test/classB">
+	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+	<rdfs:subClassOf rdf:resource="urn:com.tinkerpop.blueprints.pgm.oupls.sail.test/classA"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:com.tinkerpop.blueprints.pgm.oupls.sail.test/instance1">
+	<rdf:type rdf:resource="urn:com.tinkerpop.blueprints.pgm.oupls.sail.test/classB"/>
+</rdf:Description>
+
+</rdf:RDF>

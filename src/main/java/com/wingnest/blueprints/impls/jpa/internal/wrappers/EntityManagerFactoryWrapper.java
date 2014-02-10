@@ -109,8 +109,10 @@ final public class EntityManagerFactoryWrapper {
 		while (it.hasNext()) {
 			String key = it.next();
 			String newkey = key.substring(BLUEPRINTS_JPAGRAPH_PERSISTENCE_UNIT_PROPERTIES.length() + 1).replaceAll("\\.\\.", ".");
-			props.put(newkey, configuration.getString(key));
-		}		
+			String value = configuration.getString(key);
+			props.put(newkey, value);
+			logger.debug("EntityManagerFactory getProperties : key = " + newkey + ", value = " + value);
+		}
 		return props;
 	}	
 
@@ -134,5 +136,4 @@ final public class EntityManagerFactoryWrapper {
 	public Damper getDamper() {
 		return this.damper;
 	}
-
 }
