@@ -20,6 +20,9 @@ Support Features
 
 Support JPAs
 ==================
+
+Which one you need depends on what you want to use with it:
+
 * [EclipseLink](http://www.eclipse.org/eclipselink/)  (At this point, I recommend EclipseLink)
 * [ObjectDB](http://www.objectdb.com/) (Somewhat buggy)
 * [Hibernate](http://hibernate.org/)
