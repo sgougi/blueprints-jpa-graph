@@ -22,6 +22,7 @@ import org.apache.commons.configuration.Configuration;
 
 import com.tinkerpop.blueprints.Graph;
 import com.tinkerpop.rexster.config.GraphConfiguration;
+import com.tinkerpop.rexster.config.GraphConfigurationContext;
 import com.tinkerpop.rexster.config.GraphConfigurationException;
 import com.wingnest.blueprints.impls.jpa.JpaGraph;
 
@@ -31,7 +32,8 @@ public class JpaGraphConfiguration implements GraphConfiguration {
 	private static final String TOKEN_JPA_GRAPH_UNIT_NAME = "jpagraph-unit-name";
 
 	@Override
-	public Graph configureGraphInstance(Configuration properties) throws GraphConfigurationException {
+	public Graph configureGraphInstance(GraphConfigurationContext confContext) throws GraphConfigurationException {
+		Configuration properties = confContext.getProperties();
 		String unitName  = properties.getString(TOKEN_JPA_GRAPH_UNIT_NAME);
 		Iterator<String> it = properties.getKeys(TOKEN_PROPERTIES);
 		Properties props = new Properties();
@@ -40,7 +42,7 @@ public class JpaGraphConfiguration implements GraphConfiguration {
 			String newkey = key.substring(TOKEN_PROPERTIES.length() + 1).replaceAll("\\.\\.", ".");
 			props.put(newkey, properties.getString(key));
 		}
-		return new JpaGraph(unitName, props); 
+		return new JpaGraph(unitName, props);	
 	}
 
 }

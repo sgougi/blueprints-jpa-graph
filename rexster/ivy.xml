@@ -42,7 +42,7 @@
 
             
 		<!-- ========== ObjectDB ============  -->
-        <dependency org="com.objectdb" name="objectdb" rev="2.5.4_03" conf="ObjectDB->default"/>
+        <dependency org="com.objectdb" name="objectdb" rev="2.5.4_04" conf="ObjectDB->default"/>
         
         <!-- ======== EclipseLink ==========  -->
         <dependency org="org.apache.derby" name="derby" rev="10.10.1.1" conf="EclipseLink->default"/>
