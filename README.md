@@ -20,6 +20,9 @@ Support Features
 
 Support JPAs
 ==================
+
+Which one you need depends on what you want to use with it:
+
 * [EclipseLink](http://www.eclipse.org/eclipselink/)  (At this point, I recommend EclipseLink)
 * [ObjectDB](http://www.objectdb.com/) (Somewhat buggy)
 * [Hibernate](http://hibernate.org/)
@@ -28,7 +31,6 @@ Weak points
 ========
 * IndexableGraph and KeyIndexableGraph have poorer performance than native GraphDBs.
 * In case of using EclipseLink and Hibernate, adding massive data at one commit is very slow, then we should divide massive data into a plurality of sub-blocks.
-* I am poor in English.
 
 Micro benchmark only as a guide
 ===============================
