@@ -9,10 +9,12 @@
 
 1) Build
 
+      % rm -r lib
       % ant
 
 2)  Execute rexster_*.sh (unix) or rexster_*.bat (windows) as follows:
 
+      % rm -r db
       % rexster_EclipseLink -s
 
 3) Access to [http://localhost:8182/graphs/jpagraph](http://localhost:8182/graphs/jpagraph) by your Internet browser, then a JSON text below will appear on your browser:

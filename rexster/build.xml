@@ -3,7 +3,7 @@
 	<property name="ivy.jar.dir" value="${basedir}/ivy" />
 	<property name="ext.dir" value="${basedir}/ext" />
 	<property name="ivy.jar.file" value="${ivy.jar.dir}/ivy.jar" />
-	<property name="tinkerpop.version" value="2.5.0-SNAPSHOT" />
+	<property name="tinkerpop.version" value="2.5.0" />
 	<property name="sparql-kibble.jar" value="${ext.dir}/sparql-kibble-${tinkerpop.version}.jar" />
 	
     <!-- some variables used -->

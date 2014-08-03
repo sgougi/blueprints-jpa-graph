@@ -82,10 +82,15 @@ final public class EdgeFacade {
 		if (key.length() == 0) throw BpJpaExceptionFactory.cannotBeEmpty("key");
 		if (value == null) throw BpJpaExceptionFactory.cannotBeNull("value");	
 		try {
-			jpaGraph.getDamper().beforeFetch(jpaGraph);
-			List<BpJpaEdge> rt = jpaGraph.getBpJpaKeyIndexManager().getEdgesIfExists(key, value);
-			if (rt == null) {
-				rt = BpJpaEdge.getEdges(jpaGraph.getRawGraph(), key, value);
+			jpaGraph.getDamper().beforeFetch(jpaGraph);		
+			List<BpJpaEdge> rt = null;
+			if (key.equals("label")) {
+				rt = BpJpaEdge.getEdgesByLabel(jpaGraph.getRawGraph(), value);
+			} else {
+				rt = jpaGraph.getBpJpaKeyIndexManager().getEdgesIfExists(key, value);
+				if (rt == null) {
+					rt = BpJpaEdge.getEdges(jpaGraph.getRawGraph(), key, value);
+				}
 			}
 			return new JpaEdgeIterable<Edge>(jpaGraph, rt);
 		} catch (Exception e) { 

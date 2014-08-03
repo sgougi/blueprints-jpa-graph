@@ -98,6 +98,14 @@ final public class BpJpaEdge extends BpJpaElement {
 		return es;
 	}
 
+	public static List<BpJpaEdge> getEdgesByLabel(EntityManager entityManager, Object label) {
+		if (entityManager == null) throw BpJpaExceptionFactory.cannotBeNull("entityManager");
+		if (label == null) throw BpJpaExceptionFactory.cannotBeNull("label");
+		TypedQuery<BpJpaEdge> q = entityManager.createNamedQuery("BpJpaEdge_getEdgesByLabel", BpJpaEdge.class).setParameter("label", label);
+		List<BpJpaEdge> es = q.getResultList();
+		return es;	
+	}
+	
 	public static List<BpJpaEdge> getEdges(EntityManager entityManager, String key) {
 		if (entityManager == null) throw BpJpaExceptionFactory.cannotBeNull("entityManager");
 		if (key == null) throw BpJpaExceptionFactory.cannotBeNull("key");

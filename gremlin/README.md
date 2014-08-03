@@ -9,10 +9,12 @@ Hello, Gremlin!!
 
 1) Build
 
+      % rm -r lib
       % ant
 
-2)  Execute gremlin_*.sh (unix) or gremin_*.bat (windows) as follows:
+2)  Execute gremlin_\*.sh (unix) or gremin_\*.bat (windows) as follows:
 
+      % rm -r db      
       % gremlin_ObjectDB
 
 3) Construct a JpaGraph with a sample data as follows:

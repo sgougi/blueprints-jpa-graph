@@ -17,15 +17,16 @@ Support Features
 * [Sail](https://github.com/tinkerpop/blueprints/wiki/Sail-Implementation) support 
 * [Rexster](https://github.com/tinkerpop/rexster/wiki) support
 * [GraphFactory](https://github.com/tinkerpop/blueprints/wiki/Implementations#graphfactory-support) support
+* Java 5, 6 or 7
 
 Support JPAs
 ==================
 
 Which one you need depends on what you want to use with it:
 
-* [EclipseLink](http://www.eclipse.org/eclipselink/)  (At this point, I recommend EclipseLink)
-* [ObjectDB](http://www.objectdb.com/) (Somewhat buggy)
-* [Hibernate](http://hibernate.org/)
+* [EclipseLink 2.5.2-](http://www.eclipse.org/eclipselink/)
+* [ObjectDB 2.5.6_02-](http://www.objectdb.com/)
+* [Hibernate 4.3.6.Final-](http://hibernate.org/)
 
 Weak points
 ========

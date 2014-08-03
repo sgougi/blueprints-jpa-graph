@@ -16,5 +16,9 @@
 	<named-query name="BpJpaEdge_getEdgeById">
 		<query>SELECT e FROM BpJpaEdge e where e.id = :id AND e.removed = false</query>
 	</named-query>
+	
+	<named-query name="BpJpaEdge_getEdgesByLabel">
+		<query>SELECT e FROM BpJpaEdge e where e.label = :label AND e.removed = false</query>
+	</named-query>	
 		
 </entity-mappings>

@@ -114,6 +114,7 @@ public class JpaGraphTest extends GraphTest {
         doTestSuite(new GMLReaderTestSuite(this));
         printTestPerformance("GMLReaderTestSuite", this.stopWatch());
     }
+    
 
     final static Set<String> notSupports = new HashSet<String>();
     
@@ -139,6 +140,7 @@ public class JpaGraphTest extends GraphTest {
 	            		method.invoke(testSuite);
 	            		long end = new Date().getTime();
 	            		if(bDetailTestReport) System.out.println(String.format("time : %d : %s", end - start, method.getName()));
+	        			shutdownAll();	            		
 	    	   			clearDB();
 	            	}
 	            }
@@ -147,9 +149,13 @@ public class JpaGraphTest extends GraphTest {
 			e.printStackTrace();
 			throw e;
 		} finally {
-			for(JpaGraph g:JpaGraph.getCurrentJpaGraphs() ) {
-				g.shutdown();
-			}
+			shutdownAll();
+		}
+	}
+
+	private void shutdownAll() {
+		for(JpaGraph g:JpaGraph.getCurrentJpaGraphs() ) {
+			g.shutdown();
 		}
 	}
 

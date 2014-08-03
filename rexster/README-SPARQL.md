@@ -9,10 +9,12 @@ Using SPARQL+Rexster with JpaGraph
 
 1) Build
 
+      % rm -r lib
       % ant
 
 2)  Execute rexster_*.sh (unix) or rexster_*.bat (windows) as follows:
 
+      % rm -r db
       % rexster_EclipseLink -s
 
 3) Access to [http://localhost:8182/doghouse/main/gremlin/jpasailgraph](http://localhost:8182/doghouse/main/gremlin/jpasailgraph ) by your Internet browser, then the Gremlin console will appear on your browser.

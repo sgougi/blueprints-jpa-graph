@@ -358,11 +358,12 @@ public class JpaGraph implements
 			EntityTransaction tx = entityManager.getTransaction();
 			tx.begin();		
 			try {
-				entityManager.createQuery("DELETE FROM BpJpaIndexBase").executeUpdate();			
-				entityManager.createQuery("DELETE FROM BpJpaEntity").executeUpdate();
+				entityManager.createQuery("DELETE FROM BpJpaIndexBase").executeUpdate();
+				entityManager.createQuery("DELETE FROM BpJpaEntity").executeUpdate();										
 				tx.commit();			
 			} catch (RuntimeException e) {
 				logger.error("clear db", e);
+				e.printStackTrace();
 				tx.rollback();
 			}  finally {
 				entityManager.close();
