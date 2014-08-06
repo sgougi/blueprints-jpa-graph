@@ -113,8 +113,41 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 		    <property name="hibernate.show_sql" value="false" />
       		<property name="hibernate.hbm2ddl.auto" value="update" />
 		</properties>
-	</persistence-unit>	
-	
+	</persistence-unit>
+		
+    <persistence-unit name="HibernateOGMUnit" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.ogm.jpa.HibernateOgmPersistence</provider>
+		<mapping-file>META-INF/BpJpaEntity.normal.xml</mapping-file>
+		<mapping-file>META-INF/BpJpaIndexBase.normal.xml</mapping-file>
+		<mapping-file>META-INF/BpJpaElement.nq.normal.xml</mapping-file>		
+	 	<mapping-file>META-INF/BpJpaElement.hibernate.xml</mapping-file>			
+		<mapping-file>META-INF/BpJpaVertex.nq.normal.xml</mapping-file>
+		<mapping-file>META-INF/BpJpaVertex.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaEdge.nq.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaEdge.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaProperty.normal.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaIndex.nq.normal.xml</mapping-file>	 		 		 	
+	 	<mapping-file>META-INF/BpJpaIndex.hibernate.xml</mapping-file>
+	 	<mapping-file>META-INF/BpJpaIndexItem.nq.normal.xml</mapping-file>	 	
+		<mapping-file>META-INF/BpJpaIndexItem.normal.xml</mapping-file>
+		<mapping-file>META-INF/BpJpaKeyIndex.nq.normal.xml</mapping-file>
+		<mapping-file>META-INF/BpJpaKeyIndex.normal.xml</mapping-file>
+		<mapping-file>META-INF/BpJpaKeyIndexedProperty.nq.normal.xml</mapping-file>
+		<mapping-file>META-INF/BpJpaKeyIndexedProperty.normal.xml</mapping-file>
+		        
+        <properties>
+        	<!-- Infinispan -->
+	        <property name="hibernate.ogm.datastore.provider" value="org.hibernate.ogm.datastore.infinispan.impl.InfinispanDatastoreProvider"/>
+			<!-- MongoDB -->
+	        <!--  property name="hibernate.ogm.datastore.provider" value="org.hibernate.ogm.datastore.mongodb.impl.MongoDBDatastoreProvider"/>
+	        <property name="hibernate.ogm.datastore.database" value="hibernate-ogm-test"/>
+	        <property name="hibernate.ogm.datastore.host" value="localhost"/ -->
+
+	        <property name="hibernate.search.default.directory_provider" value="filesystem"/>
+	        <property name="hibernate.search.default.indexBase" value="./tmp/.hibernate_ogm_demo_luceneindexes"/>
+        </properties>
+    </persistence-unit>
+    	
 	<persistence-unit name="ObjectDbUnit" transaction-type="RESOURCE_LOCAL">
 		<provider>com.objectdb.jpa.Provider</provider>
 		<mapping-file>META-INF/BpJpaElement.nq.objectdb.xml</mapping-file>

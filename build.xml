@@ -39,6 +39,15 @@
 			<param name="pom.file" value="pom-hibernate.xml"/>
 		</antcall>		
 	</target>
+	
+	<!-- ====================================
+		             TEST-Hibernate-OGM
+	     ==================================== -->	
+	<target name="test-hibernate-ogm">
+		<antcall target="exec-test">
+			<param name="pom.file" value="pom-hibernate-ogm.xml"/>
+		</antcall>		
+	</target>	
 
 	<!-- ====================================
 		             TEST-ObjectDB

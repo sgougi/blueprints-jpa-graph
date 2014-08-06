@@ -185,6 +185,8 @@ public class JpaGraphTest extends GraphTest {
 				props.put("javax.persistence.jdbc.url", String.format("jdbc:derby:db/EclipseLinkUnit_test_%s;create=true", graphName));
 			} else if(UNIT_NAME.equals("HibernateUnit")) {
 				props.put("javax.persistence.jdbc.url", String.format("jdbc:derby:db/HibernateUnit_test_%s;create=true", graphName));
+			} else if(UNIT_NAME.equals("HibernateOGMUnit")) {
+				/* nop */
 			} else if(UNIT_NAME.equals("ObjectDbUnit")) {
 				props.put("javax.persistence.jdbc.url", String.format("objectdb:db/ObjectDbUnit_test_%s/test.odb", graphName));
 			} else {
@@ -197,6 +199,8 @@ public class JpaGraphTest extends GraphTest {
 				props.put("javax.persistence.jdbc.url", String.format("jdbc:derby:db/EclipseLinkUnit_test;create=true"));
 			} else if(UNIT_NAME.equals("HibernateUnit")) {
 				props.put("javax.persistence.jdbc.url", String.format("jdbc:derby:db/HibernateUnit_test;create=true"));
+			} else if(UNIT_NAME.equals("HibernateOGMUnit")) {
+				/* nop */
 			} else if(UNIT_NAME.equals("ObjectDbUnit")) {
 				props.put("javax.persistence.jdbc.url", String.format("objectdb:db/ObjectDbUnit_test/test.odb"));
 			} else {
