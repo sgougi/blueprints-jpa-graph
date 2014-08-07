@@ -130,12 +130,14 @@
 		    <groupId>org.hibernate.ogm</groupId>
 		    <artifactId>hibernate-ogm-infinispan</artifactId>
 		    <version>4.0.0.Beta4</version>
+		    <scope>provided</scope>	
 		</dependency>
 
 		<dependency>
 			<groupId>org.jboss.jbossts.jta</groupId>
 			<artifactId>narayana-jta</artifactId>
 			<version>4.17.21.Final</version>
+			<scope>provided</scope>	
 		</dependency>
 		
 		<!-- SESAME SUPPORT -->
