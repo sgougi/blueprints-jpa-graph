@@ -119,7 +119,7 @@ Maven Repository
      <dependency>
          <groupId>com.wingnest.blueprints</groupId>
          <artifactId>blueprints-jpa-graph</artifactId>
-         <version>2.5.0</version>
+         <version>2.5.0_01</version>
      </dependency>
 
      Repository: http://www.wingnest.com/mvn-repo/ 

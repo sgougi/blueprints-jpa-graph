@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.wingnest.blueprints</groupId>
 	<artifactId>blueprints-jpa-graph</artifactId>
-	<version>2.5.0</version>
+	<version>2.5.0_01</version>
 	<packaging>jar</packaging>
 	<name>blueprints-jpa-graph</name>
     <description>Blueprints property graph implementation for the JPA</description>
@@ -146,18 +146,19 @@
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-simple</artifactId>
 			<version>1.6.1</version>
+			<scope>test</scope>			
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.derby</groupId>
 			<artifactId>derby</artifactId>
-			<version>10.10.2.0</version>
+			<version>10.11.1.1</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.derby</groupId>
 			<artifactId>derbytools</artifactId>
-			<version>10.10.2.0</version>
+			<version>10.11.1.1</version>
 			<scope>test</scope>
 		</dependency>
 

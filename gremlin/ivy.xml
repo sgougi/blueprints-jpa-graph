@@ -14,7 +14,7 @@
     </configurations>
     
     <dependencies>
-        <dependency org="com.wingnest.blueprints" name="blueprints-jpa-graph" rev="${tinkerpop.version}" changing="true" conf="common->default"/>
+        <dependency org="com.wingnest.blueprints" name="blueprints-jpa-graph" rev="${tinkerpop.version}_01" changing="true" conf="common->default"/>
 
         <dependency org="com.tinkerpop.blueprints" name="blueprints-core" rev="${tinkerpop.version}" conf="common->default"/>        
         <dependency org="com.tinkerpop" name="pipes" rev="${tinkerpop.version}" conf="common->default"/>
@@ -26,25 +26,24 @@
         <dependency org="org.fusesource.jansi" name="jansi" rev="1.5" conf="common->default"/>
         <dependency org="jline" name="jline" rev="0.9.94" conf="common->default"/>
                         
-        <dependency org="org.slf4j" name="slf4j-log4j12" rev="1.7.5" conf="common->default"/>
-        <dependency org="org.slf4j" name="slf4j-simple" rev="1.6.1" conf="common->default"/>
+        <dependency org="org.slf4j" name="slf4j-log4j12" rev="1.7.7" conf="common->default"/>
         
         <dependency org="javax.jdo" name="jdo2-api" rev="2.3-eb" conf="common->default"/>
 
 		<dependency org="commons-configuration" name="commons-configuration" rev="1.6" conf="common->default"/>
 
 		<!-- ========== ObjectDB ============  -->
-        <dependency org="com.objectdb" name="objectdb" rev="2.5.4_04" conf="ObjectDB->default"/>
+        <dependency org="com.objectdb" name="objectdb" rev="2.5.6_05" conf="ObjectDB->default"/>
         
         <!-- ======== EclipseLink ==========  -->
-        <dependency org="org.apache.derby" name="derby" rev="10.10.2.0" conf="EclipseLink->default"/>
-        <dependency org="org.apache.derby" name="derbytools" rev="10.10.2.0" conf="EclipseLink->default"/>
+        <dependency org="org.apache.derby" name="derby" rev="10.11.1.1" conf="EclipseLink->default"/>
+        <dependency org="org.apache.derby" name="derbytools" rev="10.11.1.1" conf="EclipseLink->default"/>
         <dependency org="org.eclipse.persistence" name="eclipselink" rev="2.5.2" conf="EclipseLink->default"/>
         <dependency org="org.eclipse.persistence" name="javax.persistence" rev="2.1.0" conf="EclipseLink->default"/>
 
 		<!--========== Hibernate ===========  -->
-		<dependency org="org.apache.derby" name="derby" rev="10.10.2.0" conf="Hibernate->default"/>
-        <dependency org="org.apache.derby" name="derbytools" rev="10.10.2.0" conf="Hibernate->default"/>
+		<dependency org="org.apache.derby" name="derby" rev="10.11.1.1" conf="Hibernate->default"/>
+        <dependency org="org.apache.derby" name="derbytools" rev="10.11.1.1" conf="Hibernate->default"/>
         <dependency org="org.hibernate" name="hibernate-entitymanager" rev="4.3.6.Final" conf="Hibernate->default"/>
 
 		<!--=========== Exclude ============  -->        
