@@ -121,9 +121,8 @@ Maven Repository
          <artifactId>blueprints-jpa-graph</artifactId>
          <version>2.5.0_01</version>
      </dependency>
-
      Repository: http://www.wingnest.com/mvn-repo/ 
-　　 (This server is currently suspended by DDoS, sorry.)
+
 Licence
 ========
 Blueprints JPA Graph is distributed under the [Apache 2 licence](http://www.apache.org/licenses/LICENSE-2.0.html).
